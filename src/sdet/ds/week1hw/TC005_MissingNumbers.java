@@ -19,8 +19,8 @@ public class TC005_MissingNumbers {
 	@Test
 	public void example1() {
 		int[] input = { 4, 3, 2, 7, 8, 2, 3, 1 };
-		// bruteforce_1(input);
-		bruteforce_3(input);
+		bruteforce_1(input);
+		bruteforce_2(input);
 	}
 
 	private void bruteforce_1(int[] input) {
