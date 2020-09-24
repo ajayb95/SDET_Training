@@ -63,6 +63,7 @@ public class TC002_LuckyInteger {
 				map.put(a, 1);
 
 		int max = 0;
+		
 		for (Map.Entry<Integer, Integer> mp : map.entrySet())
 			if (mp.getKey() == mp.getValue())
 				max = Math.max(max, mp.getKey());
