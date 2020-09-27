@@ -48,7 +48,7 @@ public class TC002_LuckyInteger {
 	@Test
 	public void example4() {
 		System.out.println("Method 4");
-		int[] input = { 5 };
+		int[] input = { 5, 2,2,2,3, 3 };
 		int output = bruteForce_2(input);
 		System.out.println(output);
 	}
@@ -56,12 +56,15 @@ public class TC002_LuckyInteger {
 	private int bruteForce_1(int[] input) {
 		Map<Integer, Integer> map = new HashMap<>();
 
-		for (int a : input)
-			if (map.containsKey(a))
-				map.put(a, map.get(a) + 1);
-			else
-				map.put(a, 1);
+		/*
+		 * for (int a : input) if (map.containsKey(a)) map.put(a, map.get(a) + 1); else
+		 * map.put(a, 1);
+		 */
 
+		for (int a : input) {
+			map.put(a, map.getOrDefault(a, 0)+1);
+		}
+		
 		int max = 0;
 		
 		for (Map.Entry<Integer, Integer> mp : map.entrySet())
