@@ -11,8 +11,8 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 Example 2:
 
 Input: "aabc"
-Output: 4
-Explanation: Three palindromic strings: "a", "b", "c", "aa".
+Output: 5
+Explanation: Three palindromic strings: "a", "a", "b", "c", "aa".
 */
 
 import java.util.ArrayList;
@@ -35,13 +35,13 @@ public class P6_PalindromicString {
 		String input = "aabc";
 		palindrome(input);
 	}
-	
+
 	@Test
 	public void example3() {
 		String input = "abcd";
 		palindrome(input);
 	}
-	
+
 	@Test
 	public void example4() {
 		String input = "aa";
@@ -58,20 +58,50 @@ public class P6_PalindromicString {
 			}
 		}
 		System.out.println(list.size());
-		//System.out.println(list);
+		// System.out.println(list);
 	}
-	
-	private void palindrome(String input) {
+
+	private void palindrome2(String input) {
 		List<String> list = new ArrayList<String>();
-		String reverse=new StringBuilder(input).reverse().toString();
-		int count=input.length();
-		
+		String reverse = new StringBuilder(input).reverse().toString();
+		int count = input.length();
+
+		int start;
+		int end = input.length();
 		for (int i = 0; i < input.length(); i++) {
-			for (int j = i+2; j <= input.length(); j++) {
-				System.out.println(input.substring(i, j));
-				System.out.println("--");
-				System.out.println(reverse.substring(i,j ));
+			start = input.length() - (i + 2);
+			for (int j = i + 2; j <= input.length(); j++) {
+				if (input.substring(i, j).equals(reverse.substring(start--, end)))
+					count++;
+			}
+			end--;
+		}
+		System.out.println(count);
+	}
+
+	private void palindrome(String input) {
+
+		int s1 = 0, e1 = s1 + 1, s2 = input.length() - 1, e2 = input.length();
+		String reverse = new StringBuilder(input).reverse().toString();
+		int count = 0;
+
+		while (s1 < input.length() && e2 >= 0) {
+			// System.out.println("1." + input.substring(s1, e1));
+			// System.out.println("2." + reverse.substring(s2, e2));
+
+			if (input.substring(s1, e1).equals(reverse.substring(s2, e2)))
+				count++;
+
+			if (e1 == input.length() && s2 == 0) {
+				s1++;
+				e1 = s1 + 1;
+				e2--;
+				s2 = e2 - 1;
+			} else {
+				e1++;
+				s2--;
 			}
 		}
+		System.out.println(count);
 	}
 }
