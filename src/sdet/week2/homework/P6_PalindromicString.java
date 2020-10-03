@@ -44,7 +44,7 @@ public class P6_PalindromicString {
 
 	@Test
 	public void example4() {
-		String input = "aa";
+		String input = "abccba";
 		palindrome(input);
 	}
 

@@ -30,7 +30,7 @@ public class P2_RotateImage {
 		rotateImage(matrix);
 	}
 
-	private void rotateImage1(int[][] matrix) {
+	private void rotateImage(int[][] matrix) {
 		int[][] output = new int[matrix.length][matrix.length];
 		int a = 0, b = 0;
 		for (int i = 0; i < matrix.length; i++) {
@@ -44,7 +44,7 @@ public class P2_RotateImage {
 		System.out.println(Arrays.deepToString(output));
 	}
 
-	private void rotateImage(int[][] matrix) {
+	private void rotateImage1(int[][] matrix) {
 
 		int start = 0;
 		int end = 0;
@@ -58,7 +58,7 @@ public class P2_RotateImage {
 				end = start;
 			}
 		}
-		System.out.println(Arrays.deepToString(matrix));
+		//System.out.println(Arrays.deepToString(matrix));
 		start = 0;
 		end = matrix.length - 1;
 		int s1 = 0;

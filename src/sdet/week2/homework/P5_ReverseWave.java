@@ -40,11 +40,11 @@ public class P5_ReverseWave {
 			if (i == input.length) {
 				i--;
 				j--;
-				flow = -1;
+				flow = flow>0?-1:1;
 			} else if (i < 0) {
 				i++;
 				j--;
-				flow = 1;
+				flow = flow<0?1:-1;
 			}
 		}
 	}

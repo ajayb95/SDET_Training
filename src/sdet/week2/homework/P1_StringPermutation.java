@@ -106,7 +106,7 @@ public class P1_StringPermutation {
 		return false;
 	}
 
-	private boolean findPermutation(String s1, String s2) {
+	private boolean findPermutation3(String s1, String s2) {
 		Map<Character, Integer> s1map = new HashMap<>();
 		Map<Character, Integer> s2map = new HashMap<>();
 		int l1 = s1.length();
@@ -132,6 +132,20 @@ public class P1_StringPermutation {
 					return true;
 			}
 		}
+		return false;
+	}
+	
+	private boolean findPermutation(String s1, String s2) {
+		String[] split = s1.split("");
+		String[] split2 = s2.split("");
+		Arrays.sort(split);
+		Arrays.sort(split2);
+		String join = String.join("", split);
+		String join2 = String.join("", split);
+		
+		if(join.contains(join2))
+			return true;
+		
 		return false;
 	}
 
