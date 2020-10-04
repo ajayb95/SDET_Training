@@ -1,5 +1,6 @@
 package sdet.week3.array_string;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,13 @@ public class P2_SecondLeastRepeating {
 		secondLeast(input);
 	}
 	
-	private void secondLeast(String input) {
+	@Test
+	public void example2() {
+		String input="aaaa";
+		secondLeast(input);
+	}
+	
+	private void secondLeast1(String input) {
 		Map<Character, Integer> map=new HashMap<>();
 		
 		for(char c:input.toCharArray())
@@ -32,5 +39,14 @@ public class P2_SecondLeastRepeating {
 		System.out.println(collect.get(collect.size()-2));
 		
 		
+	}
+	
+	private void secondLeast(String input) {
+		int[] op=new int[256];
+		for (int i = 0; i < input.length(); i++) {
+			op[input.charAt(i)-'a']++;
+		}
+		System.out.println(Arrays.toString(op));
+		System.out.println('c'-'a');
 	}
 }

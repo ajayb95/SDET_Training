@@ -52,7 +52,7 @@ public class P7_FindMedian {
 		findMedian(a1, a2);
 	}
 
-	private void findMedian(int[] a1, int[] a2) {
+	private void findMedian1(int[] a1, int[] a2) {
 		List<Integer> collect = Arrays.stream(a1).boxed().collect(Collectors.toList());
 		collect.addAll(Arrays.stream(a2).boxed().collect(Collectors.toList()));
 		Collections.sort(collect);
@@ -64,21 +64,15 @@ public class P7_FindMedian {
 			System.out.println(collect.get((int) Math.ceil(med / 2f)));
 	}
 	
-	private void findMedian1(int[] a1, int[] a2) {
-		int sum=0;
-		int size=0;
-		for (int i : a1) {
-			sum+=i;
-			size++;
-		}
-		for (int i : a2) {
-			sum+=i;
-			size++;
-		}
+	private void findMedian(int[] a1, int[] a2) {
+		int len=a1.length+a2.length+1;
 		
-		String format = String.format("%.1f", (float)sum/size);
-		System.out.println(format);
-		
-		
+		if(len%2!=0) {
+			double f=len/2f;
+			f=Math.floor(f)+Math.ceil(f);
+			System.out.println(String.format("%.1f", f/2));
+		}else {
+			System.out.println(String.format("%.1f", (float)len/2));
+		}	
 	}
 }
