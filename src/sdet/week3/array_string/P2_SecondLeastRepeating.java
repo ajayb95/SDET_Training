@@ -44,9 +44,8 @@ public class P2_SecondLeastRepeating {
 	private void secondLeast(String input) {
 		int[] op=new int[256];
 		for (int i = 0; i < input.length(); i++) {
-			op[input.charAt(i)-'a']++;
+			op[input.charAt(i)-1]++;
 		}
 		System.out.println(Arrays.toString(op));
-		System.out.println('c'-'a');
 	}
 }

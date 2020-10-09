@@ -2,9 +2,11 @@ package sdet.week1.array;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,7 +16,7 @@ public class ReturnDuplicate {
 
 	@Test
 	public void eg1() {
-		int[] arr = { 2, 1, 3, 1, 3, 1, 3, 4 };
+		int[] arr = { 2, 1, 3, 1, 3, 1, 4 };
 		System.out.println("Method 1");
 		returnDup(arr);
 	}
@@ -27,7 +29,7 @@ public class ReturnDuplicate {
 	}
 
 
-	private void returnDup(int[] arr) {
+	private void returnDup2(int[] arr) {
 		Arrays.sort(arr);
 
 		for (int i = 0; i < arr.length - 1; i++) {
@@ -47,5 +49,14 @@ public class ReturnDuplicate {
 		Stream<Integer> flatMap = map.entrySet().stream().filter(m -> m.getValue() > 1)
 				.flatMap(m -> Stream.of(m.getKey()));
 		flatMap.forEach(a -> System.out.println(a));
+	}
+	
+	private void returnDup(int[] arr) {
+		Set<Integer> set=new HashSet<Integer>();
+		
+		for (int i : arr) {
+			if(!set.add(i))
+				System.out.println(i);
+		}
 	}
 }

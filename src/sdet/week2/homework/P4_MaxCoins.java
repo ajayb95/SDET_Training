@@ -14,14 +14,14 @@ import org.junit.Test;
 
 public class P4_MaxCoins {
 
-	//@Test
+	@Test
 	public void example1() {
 		int[] arr = { 5, 5, 10, 100, 10, 5 };
 		int maxCoins = maxCoins(arr);
 		System.out.println(maxCoins);
 	}
 
-	//@Test
+	@Test
 	public void example2() {
 		int[] arr = { 3, 2, 7, 10 };
 		int maxCoins = maxCoins(arr);
@@ -35,7 +35,7 @@ public class P4_MaxCoins {
 		System.out.println(maxCoins);
 	}
 
-	private int maxCoins(int[] arr) {
+	private int maxCoins1(int[] arr) {
 		int incl = arr[0];
 		int excl = 0;
 		int excl_new;
@@ -51,5 +51,17 @@ public class P4_MaxCoins {
 
 		/* return max of incl and excl */
 		return ((incl > excl) ? incl : excl);
+	}
+	
+	private int maxCoins(int[] arr) {
+		int prev=0;
+		int curr=0;
+		
+		for (int i : arr) {
+			int temp=curr;
+			curr=Math.max(prev+i, curr);
+			prev=temp;
+		}
+		return curr;
 	}
 }

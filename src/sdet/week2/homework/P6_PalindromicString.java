@@ -79,7 +79,7 @@ public class P6_PalindromicString {
 		System.out.println(count);
 	}
 
-	private void palindrome(String input) {
+	private void palindrome3(String input) {
 
 		int s1 = 0, e1 = s1 + 1, s2 = input.length() - 1, e2 = input.length();
 		String reverse = new StringBuilder(input).reverse().toString();
@@ -103,5 +103,22 @@ public class P6_PalindromicString {
 			}
 		}
 		System.out.println(count);
+	}
+	
+	private void palindrome(String input) {
+		int l=input.length();
+		List<String> list=new ArrayList<String>();
+		
+		for (int i = 0; i < 2*l; i++) {
+			int left=i/2;
+			int right=left+i%2;
+			
+			while(left>=0 && right<l && input.charAt(left)==input.charAt(right)) {
+				list.add(input.substring(left, right+1));
+				left--;
+				right++;
+			}
+		}
+		System.out.println(list);
 	}
 }

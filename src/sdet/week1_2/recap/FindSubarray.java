@@ -12,7 +12,7 @@ public class FindSubarray {
 		int[] input = { 1, 7, 4, 3, 4, 1, 2, 5, 1 };
 		int k = 7;
 		System.out.println("Sliding window");
-		//findSubarray(input, k);
+		findSubarray(input, k);
 		System.out.println("Hashmap");
 		hashMap(input, k);
 	}

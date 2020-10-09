@@ -28,6 +28,7 @@ public class P1_StringPermutation {
 		String s2 = "eidbaooo";
 		boolean findPermutation = findPermutation(s1, s2);
 		System.out.println(findPermutation);
+
 	}
 
 	@Test
@@ -134,19 +135,27 @@ public class P1_StringPermutation {
 		}
 		return false;
 	}
-	
+
 	private boolean findPermutation(String s1, String s2) {
-		String[] split = s1.split("");
-		String[] split2 = s2.split("");
+		String sr1 = sortString(s1);
+		boolean flag = false;
+		for (int i = 0; i < s2.length(); i++) {
+			for (int j = i + 1; j <= s2.length(); j++) {
+				//System.out.println(s2.substring(i, j));
+				if (sr1.equals(sortString(s2.substring(i, j)))) {
+					// System.out.println(s2.substring(i, j));
+					flag = true;
+				}
+			}
+		}
+		return flag;
+	}
+
+	public String sortString(String s) {
+		String[] split = s.split("");
 		Arrays.sort(split);
-		Arrays.sort(split2);
-		String join = String.join("", split);
-		String join2 = String.join("", split);
-		
-		if(join.contains(join2))
-			return true;
-		
-		return false;
+
+		return String.join("", split);
 	}
 
 }

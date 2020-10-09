@@ -26,13 +26,13 @@ public class P3_LongestPalindrome {
 	
 	@Test
 	public void example3() {
-		String input = "aa";
+		String input = "aafg";
 		longestPalindrome(input);
 	}
 	
 	@Test
 	public void example4() {
-		String input = "abcd";  //expected output for this?
+		String input = "forgeeksskeegfor";  //expected output for this?
 		longestPalindrome(input);
 	}
 
@@ -68,7 +68,7 @@ public class P3_LongestPalindrome {
 		
 	}
 
-	private void longestPalindrome(String input) {
+	private void longestPalindrome3(String input) {
 
 		int left = 0, right = input.length() - 1;
 		String[] split = input.split("");
@@ -102,5 +102,45 @@ public class P3_LongestPalindrome {
 			}
 		}
 		System.out.println(output);
+	}
+	
+	public void longestPalindrome4(String input) {
+		int len=input.length();
+		int max=0;
+		
+		for (int c = 0; c <= 2*len-1; c++) {
+			int l=c/2;
+			int r=l+c%2;
+			System.out.println(l);
+			System.out.println(r);
+			
+			while(l>=0 && r<len && input.charAt(l)==input.charAt(r)) {
+				max=Math.max(max, input.substring(l, r+1).length());
+				l--;
+				r++;
+			}
+		}
+		
+		System.out.println(max);
+	}
+	
+	public void longestPalindrome(String input) {
+		int[] count=new int[128];
+		
+		for (char c : input.toCharArray()) {
+			count[c]++;
+		}
+		
+		int result=0;
+		//int j=0;
+		System.out.println(1/2*2);
+		for (int i : count) {
+			result+=i/2*2;
+			if(result%2==0 && i%2==1) {
+				result++;
+			}
+			//System.out.println((char)j++);
+		}
+		System.out.println(result);
 	}
 }

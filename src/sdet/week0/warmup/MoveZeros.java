@@ -1,5 +1,7 @@
 package sdet.week0.warmup;
 
+import java.util.Arrays;
+
 public class MoveZeros {
 
 	public static void main(String[] args) {
@@ -9,15 +11,27 @@ public class MoveZeros {
 		
 		int cnt=0;
 		
-		for(int i=0;i<arr.length;i++)
-			if(arr[i]!=0)
-				arr[cnt++]=arr[i];
+		/*
+		 * for(int i=0;i<arr.length;i++) if(arr[i]!=0) arr[cnt++]=arr[i];
+		 * 
+		 * while(cnt<arr.length) arr[cnt++]=0;
+		 * 
+		 * for(int a:arr) System.out.print(a+" ");
+		 */
 		
-		while(cnt<arr.length)
-			arr[cnt++]=0;
+		int nonzero=0,zero=0;
 		
-		for(int a:arr)
-			System.out.print(a+" ");
+		while(nonzero<arr.length) {
+			if(arr[nonzero]!=0) {
+				int temp=arr[zero];
+				arr[zero++]=arr[nonzero];
+				arr[nonzero++]=temp;
+			}
+			else
+				nonzero++;
+		}
+		
+		System.out.println(Arrays.toString(arr));
 	}
 
 }
