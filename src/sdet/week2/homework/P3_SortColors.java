@@ -77,7 +77,7 @@ public class P3_SortColors {
 		}
 	}
 
-	private void sortColors(int[] nums) {
+	private void sortColors3(int[] nums) {
 		int red = 0, white = 0, blue = 0;
 
 		for (int i = 0; i < nums.length; i++) {
@@ -102,6 +102,26 @@ public class P3_SortColors {
 			}
 		}
 
+		System.out.println(Arrays.toString(nums));
+	}
+	
+	private void sortColors(int[] nums) {
+		int low=0,mid=0,high=nums.length-1;
+		
+		while(mid<=high) {
+			if(nums[mid]==0) {
+				int temp=nums[low];
+				nums[low++]=nums[mid];
+				nums[mid++]=temp;
+			}
+			else if(nums[mid]==2) {
+				int temp=nums[mid];
+				nums[mid]=nums[high];
+				nums[high--]=temp;
+			}
+			else
+				mid++;
+		}
 		System.out.println(Arrays.toString(nums));
 	}
 }

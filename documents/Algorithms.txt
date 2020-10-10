@@ -20,6 +20,11 @@ return the subarray with sum 7
 1	7	4	3	1	2	1	5	1
 output: [7], [4,3], [3,1,2,1], [1,5,1]
 
+2a) Sliding with Hash Map:
+
+2b) Sliding with 2 pointer:
+
+
 3)	Hashing algorithm:
 Alternate to sliding window
 
@@ -42,7 +47,7 @@ a. Add subsequent number
 b. If sum is greater than 0, add to window sum
 c. If sum is less than 0, reset window sum to zero
 
-5) Two Pointer Algorithm:
+5) Swap Algorithm:
 Used to rotate/reverse an array
 
 H	E	L	L	O
@@ -53,3 +58,10 @@ O	E	L	L	H
 
 O	L	L	E	H
 		**
+		
+6) Two Pointer Algorithm: 
+#move zeros to end
+
+7) Dutch National Flag (3 pointer):
+
+8) Expand From Center:
