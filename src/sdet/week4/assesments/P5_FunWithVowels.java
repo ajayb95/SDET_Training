@@ -49,10 +49,10 @@ public class P5_FunWithVowels {
 		String input = "aeiaaiooaa";
 		funWithVowels(input);
 	}
-	
+
 	@Test
 	public void example5() {
-		String input = "ueeiiaeiaaioouu";
+		String input = "uioieeeaouiiuaeeuuiuuauuauaeaeuauaeaaiuoiouaeuiuuoooaeeaioeieoeooaeuooae";
 		funWithVowels(input);
 	}
 
@@ -75,19 +75,28 @@ public class P5_FunWithVowels {
 
 		System.out.println(size > 0 ? size : 0);
 	}
-	
+
 	private void funWithVowels(String input) {
 		int start = input.indexOf('a'), end = input.lastIndexOf('u');
-		int max=input.charAt(start);
-		int count=1;
-		for (int i = start+1; i <= end; i++) {
-			if(input.charAt(i)>=max) {
-				count++;
-				max=Math.max(max, input.charAt(i));
+		char[] vow = { 'a', 'e', 'i', 'o', 'u' };
+		// aouiiuaeeuuiuuauuauaeaeuauaeaaiuoiouaeuiuuoooaeeaioeieoeooaeu
+		
+		int ind = 0;
+		int max = vow[ind++];
+		// int max=input.charAt(start);
+		int count = 1;
+		for (int i = start + 1; i <= end; i++) {
+			if (input.charAt(i) >= max ) {
+				if(input.charAt(i)==max) {
+					count++;
+				}else if(vow[ind] == input.charAt(i)) {
+					count++;
+					max=vow[ind++];
+				}
 			}
 		}
-		
-		System.out.println(count>1?count:0);
-		
+
+		System.out.println(count > 1 ? count : 0);
+
 	}
 }

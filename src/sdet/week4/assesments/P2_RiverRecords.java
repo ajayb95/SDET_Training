@@ -31,7 +31,7 @@ public class P2_RiverRecords {
 
 	@Test
 	public void example1() {
-		int[] input = { 5, 3, 6, 7, 4 };
+		int[] input = { 5, 3, 6, 7, 14 };
 		System.out.println(riverRecords(input));
 	}
 
