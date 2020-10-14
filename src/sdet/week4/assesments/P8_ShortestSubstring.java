@@ -1,5 +1,12 @@
 package sdet.week4.assesments;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import org.junit.Test;
+
 /*
 Given a string comprised of lowercase letters in the range ascii[a-z],
 find the length shortest substring that contains at least one of each of
@@ -15,4 +22,33 @@ long. Return 4 as the answer.
 
 public class P8_ShortestSubstring {
 
+	@Test
+	public void example1() {
+		String s = "dabbcabcd";
+		shortString(s);
+	}
+
+	private void shortString(String s) {
+		char[] cArr = s.toCharArray();
+		Set<Character> set = new HashSet<Character>();
+		for (char c : cArr) {
+			set.add(c);
+		}
+
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		int start = 0, end = 0;
+		int min = Integer.MAX_VALUE;
+
+		while (end < cArr.length) {
+			map.put(cArr[end], map.getOrDefault(cArr[end++], 0) + 1);
+			boolean equals = map.keySet().equals(set);
+			if (equals) {
+				map.clear();
+				min = Math.min(min, s.substring(start, end).length());
+				start++;
+				end = start;
+			}
+		}
+		System.out.println(min);
+	}
 }

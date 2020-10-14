@@ -2,7 +2,12 @@ package sdet.week4.assesments;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -52,7 +57,7 @@ public class P5_FunWithVowels {
 
 	@Test
 	public void example5() {
-		String input = "uioieeeaouiiuaeeuuiuuauuauaeaeuauaeaaiuoiouaeuiuuoooaeeaioeieoeooaeuooae";
+		String input = "eouiuaaeiaoauaoaeauieeoiuiuiu";
 		funWithVowels(input);
 	}
 
@@ -76,27 +81,69 @@ public class P5_FunWithVowels {
 		System.out.println(size > 0 ? size : 0);
 	}
 
-	private void funWithVowels(String input) {
+	private void funWithVowels2(String input) {
 		int start = input.indexOf('a'), end = input.lastIndexOf('u');
 		char[] vow = { 'a', 'e', 'i', 'o', 'u' };
 		// aouiiuaeeuuiuuauuauaeaeuauaeaaiuoiouaeuiuuoooaeeaioeieoeooaeu
-		
+
 		int ind = 0;
 		int max = vow[ind++];
 		// int max=input.charAt(start);
 		int count = 1;
 		for (int i = start + 1; i <= end; i++) {
-			if (input.charAt(i) >= max ) {
-				if(input.charAt(i)==max) {
+			if (input.charAt(i) >= max) {
+				if (input.charAt(i) == max) {
 					count++;
-				}else if(vow[ind] == input.charAt(i)) {
+				} else if (vow[ind] == input.charAt(i)) {
 					count++;
-					max=vow[ind++];
+					max = vow[ind++];
 				}
 			}
 		}
 
 		System.out.println(count > 1 ? count : 0);
 
+	}
+
+	private void funWithVowel3(String input) {
+		int start = input.indexOf('a'), end = input.lastIndexOf('u');
+		int count = 1;
+		int max = input.charAt(start);
+		for (int i = start + 1; i <= end; i++) {
+			if (input.charAt(i) >= max) {
+				count++;
+				max = Math.max(max, input.charAt(i));
+			}
+		}
+
+		System.out.println(count > 1 ? count : 0);
+	}
+
+	private void funWithVowels(String input) {
+		// eouiuaaeiaoauaoaeauieeoiuiuiu
+		int end = input.lastIndexOf('u');
+		int maxcount = 0;
+		int cnt=0;
+		List<Character> list = new ArrayList<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+		for (int i = 0; i < input.length(); i++) {
+			int count = 0;
+			int ind = 0;
+			if (input.charAt(i) == 'a') {
+				for (int j = i; j <= end; j++) {
+					cnt++;
+					if (input.charAt(j) == list.get(ind)) {
+						count++;
+					} else {
+						if (input.charAt(j)>list.get(ind) && input.charAt(j) == list.get(ind + 1)) {
+							ind++;
+							count++;
+						}
+					}
+				}
+				maxcount = Math.max(maxcount, count);
+			}
+		}
+		System.out.println(maxcount);
+		System.out.println(cnt++);
 	}
 }
