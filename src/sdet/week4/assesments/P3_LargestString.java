@@ -17,7 +17,9 @@ answer is 'ccbca'.
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -45,6 +47,30 @@ public class P3_LargestString {
 	}
 
 	private void largestString(String input, int k) {
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+
+		for (char c : input.toCharArray()) {
+			map.put(c, map.getOrDefault(c, 0) + 1);
+		}
+		String op = "";
+		for (int i = (int) 'z'; i >= (int) 'a'; i--) {
+			char c = (char) i;
+			if (map.containsKey(c)) {
+				if (map.get(c) >= k) {
+					for (int j = 0; j < k; j++) {
+						op += c;
+					}
+					map.put(c, map.get(c) - k);
+				} else {
+					op += c;
+				}
+			}
+		}
+
+		System.out.println(op);
+	}
+
+	private void largestString1(String input, int k) {
 
 		List<Character> unique = new ArrayList<>();
 		List<Character> repeat = new ArrayList<>();
