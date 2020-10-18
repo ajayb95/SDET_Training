@@ -46,7 +46,48 @@ public class P3_LargestString {
 		largestString(input, k);
 	}
 
-	private void largestString(String input, int k) {
+	private void largestString(String s, int k) {
+		String outputStr = "";
+		int i = 255;
+		boolean isThere = false;
+
+		int[] count = new int[256];
+		for (int j = 0; j < s.length(); j++) {
+			count[s.charAt(j)]++;
+		}
+
+		while (i >= 0) {
+			for (int j = 0; j < Math.min(count[i], k); j++) {
+				outputStr += "" + (char) (i);
+			}
+
+			count[i] -= Math.min(count[i], k);
+			if (count[i] == 0) {
+				i -= 1;
+				continue;
+			}
+
+			isThere = false;
+
+			for (int j = i - 1; j >= 0; j--) {
+				if (count[j] > 0) {
+					outputStr += "" + (char) (j);
+					count[j] -= 1;
+					isThere = true;
+					break;
+				}
+			}
+
+			if (isThere == false)
+				break;
+
+		}
+		// return outputStr;
+		System.out.println(outputStr);
+
+	}
+
+	private void largestString2(String input, int k) {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 
 		for (char c : input.toCharArray()) {
