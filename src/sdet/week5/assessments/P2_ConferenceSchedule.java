@@ -1,3 +1,4 @@
+package sdet.week5.assessments;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,7 +12,7 @@ import java.util.stream.Stream;
 
 import org.junit.Test;
 
-public class test {
+public class P2_ConferenceSchedule {
 
 	@Test
 	public void example() {
