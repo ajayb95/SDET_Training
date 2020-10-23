@@ -21,6 +21,12 @@ public class P1_CharacterReprogramming {
 		String input = "RUDRL";
 		charReprogramming(input); // 4
 	}
+	
+	@Test
+	public void example4() {
+		String input = "UDUD";
+		charReprogramming(input); // 4
+	}
 
 	private void charReprogramming(String input) {
 		int r = 0, l = 0, u = 0, d = 0;
