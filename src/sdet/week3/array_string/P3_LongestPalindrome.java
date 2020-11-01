@@ -2,6 +2,7 @@ package sdet.week3.array_string;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
@@ -34,6 +35,21 @@ public class P3_LongestPalindrome {
 	public void example4() {
 		String input = "forgeeksskeegfor";  //expected output for this?
 		longestPalindrome(input);
+	}
+	
+	private void longestPalindrome(String input) {
+		Set<Character> set=new HashSet<>();
+		for(int i=0;i<input.toCharArray().length;i++) {
+			if(set.contains(input.charAt(i)))
+				set.remove(input.charAt(i));
+			else
+				set.add(input.charAt(i));
+		}
+		
+		if(set.size()<=1)
+			 System.out.println(input.length());
+		else
+			System.out.println(input.length()-set.size()+1);
 	}
 
 	private void longestPalindrome1(String input) {
@@ -124,7 +140,7 @@ public class P3_LongestPalindrome {
 		System.out.println(max);
 	}
 	
-	public void longestPalindrome(String input) {
+	public void longestPalindrome6(String input) {
 		int[] count=new int[128];
 		
 		for (char c : input.toCharArray()) {

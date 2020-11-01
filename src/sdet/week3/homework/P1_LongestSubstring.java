@@ -42,7 +42,8 @@ public class P1_LongestSubstring {
 		String input = "bbbbb";
 		System.out.println(longestSubstring(input));
 	}
-
+	
+	
 	private int longestSubstring(String input) {
 		int n = input.length();
 		Set<Character> set = new HashSet<Character>();
