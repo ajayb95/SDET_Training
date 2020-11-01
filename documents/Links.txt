@@ -2,6 +2,7 @@ https://www.xmind.net/
 https://www.interviewbit.com/coding-interview-questions/
 https://refactoring.guru/refactoring
 asciitable.com
+https://www.geeksforgeeks.org/java-8-predicate-with-examples/
 
 Resume:
 https://www.careercup.com/resume
