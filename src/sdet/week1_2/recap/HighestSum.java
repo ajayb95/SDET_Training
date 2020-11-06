@@ -38,8 +38,10 @@ public class HighestSum {
 
 		while (i < input.length) {
 			sum += input[i];
+			
 			if (i >= k)
 				sum -= input[i - k];
+			
 			max = Math.max(max, sum);
 			i++;
 		}
