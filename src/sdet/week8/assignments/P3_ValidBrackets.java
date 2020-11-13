@@ -35,8 +35,8 @@ public class P3_ValidBrackets {
 
 	private void validBrackets(int k) {
 		int left = 0, right = 0;
-		List<String> genBrackets = genBrackets("", left, right, k, new ArrayList<String>());
-		System.out.println(genBrackets);
+		List<String> genBracket = genBrackets("", left, right, k, new ArrayList<String>());
+		System.out.println(genBracket);
 	}
 
 	public List<String> genBrackets(String str, int left, int right, int k, List<String> lst) {
