@@ -31,6 +31,11 @@ public class DuplicateEle {
 		List<String> collect = map.entrySet().stream().filter(mp -> mp.getValue() > 1)
 				.flatMap(m -> Stream.of(m.getKey())).collect(Collectors.toList());
 		System.out.println(collect);
+		
+		for (int i = 0; i < ch.length; i++) {
+			if(i!=input.lastIndexOf(ch[i]))
+				System.out.println(ch[i]);
+		}
 	}
 
 }
