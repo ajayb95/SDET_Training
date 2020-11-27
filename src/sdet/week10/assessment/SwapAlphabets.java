@@ -1,4 +1,4 @@
-package sdet.week10.assignments;
+package sdet.week10.assessment;
 
 import java.util.ArrayList;
 import java.util.Arrays;

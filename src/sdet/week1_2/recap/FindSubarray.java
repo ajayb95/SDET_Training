@@ -19,16 +19,16 @@ public class FindSubarray {
 	
 	@Test
 	public void example2() {
-		int[] input = { 1,2,2,1,2 };
+		int[] input = { 1,2,2,1,2, 3 };
 		int k = 3;
 		System.out.println("Sliding window");
-		//findSubarray(input, k);
+		findSubarray(input, k);
 		System.out.println("Hashmap");
 		hashMap(input, k);
 	}
 
-	private void findSubarray(int[] input, int k) {
-		int start = 0, end = 1, sum = input[0];
+	private void findSubarray(int[] arr, int k) {
+		/*int start = 0, end = 1, sum = input[0];
 
 		while (end < input.length) {
 			if (sum < k) {
@@ -39,6 +39,19 @@ public class FindSubarray {
 			} else {
 				sum -= input[start++];
 			}
+		}*/
+		
+		int e = 0, sum = 0;
+
+		for (int s = 0; s < arr.length; s++) {
+
+			while (sum < k && e < arr.length)
+				sum += arr[e++];
+
+			if (sum == k)
+				System.out.println(s+","+(e-1));
+
+			sum -= arr[s];
 		}
 	}
 	
