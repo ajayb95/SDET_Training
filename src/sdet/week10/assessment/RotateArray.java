@@ -4,6 +4,16 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+
+/*
+Given an integer array perform right rotation a given number of times, N
+and print the output. N < length of array.
+
+Input: [4,6,3,8,2,9,1,36]
+N = 4
+Output: [2,9,1,36,4,6,3,8]
+*/
+
 public class RotateArray {
 
 	@Test
@@ -54,13 +64,13 @@ public class RotateArray {
 
 		if (k < arr.length && k > arr.length / 2) {
 			l = arr.length - k;
-			int t=l;
+			int t = l;
 			r = arr.length - t;
 			while (l < arr.length) {
 				int temp = arr[l];
 				arr[l++] = arr[r];
 				arr[r] = temp;
-				r += (r + 1 >= arr.length) ? -(t-1) : 1;
+				r += (r + 1 >= arr.length) ? -(t - 1) : 1;
 			}
 		}
 
