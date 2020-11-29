@@ -1,0 +1,10 @@
+4) The amazon.com website working in South Carolina but stopped working in North Carolina. 
+How will you debug?
+
+Check whether this is affecting for a customer or in an area or whole state,
+1) Check whether the system is connected to active internet
+2) Check whether the system is connected to any private network
+3) Check whether any government restriction is applied to block amazon
+4) Check whether address is routed to the server when "amazon.com" is hit 
+5) Check whether response time is exceeding the actual response time
+6) Check whether the Amazon server is down

@@ -1,0 +1,5 @@
+1) Write the edge cases for the automated car driving system [Minimum 5 testcases]
+
+Edge cases:
+1) Verify whether destination changes when user changes it during the travel
+2) Verify whether break is applied near obstacles

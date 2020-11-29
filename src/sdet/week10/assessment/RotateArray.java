@@ -43,8 +43,21 @@ public class RotateArray {
 		int k = 12;
 		System.out.println(rotateArray(arr, k));
 	}
-
+	
 	private String rotateArray(int[] arr, int k) {
+		int present,last;
+		for (int i = 0; i < k; i++) {
+			last=arr[arr.length-1];
+			for (int j = 0; j < arr.length; j++) {
+				present=arr[j];
+				arr[j]=last;
+				last=present;
+			}
+		}
+		return Arrays.toString(arr);
+	}
+	
+	private String rotateArray2(int[] arr, int k) {
 		if (k < 0 || arr.length == 0)
 			throw new RuntimeException("Invalid input");
 

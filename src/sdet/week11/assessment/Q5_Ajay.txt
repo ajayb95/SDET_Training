@@ -1,0 +1,10 @@
+5) Write test data enumeration for any URL. 
+
+
+1) Verify whether URL has valid endpoint
+https://google.com
+https://google.co.in
+2) Verify whether URL has valid resource and parameters
+https://google.com/search?q=testing
+3) Verify whether URL has invalid parameters which is not in server
+https://google.com?qry="testing"

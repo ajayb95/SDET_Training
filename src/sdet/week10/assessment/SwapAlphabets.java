@@ -3,8 +3,10 @@ package sdet.week10.assessment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -15,7 +17,8 @@ Given a String which contains same set of alphabets in both upper and lower case
 swap the alphabets to get the alphabets of both cases to appear together.
 Retain the order of first occurrence of any alphabet.
 */
-
+//result should be in set of characters. if no set then don't show in result
+//duplicates should be removed
 public class SwapAlphabets {
 
 	@Test
@@ -35,8 +38,27 @@ public class SwapAlphabets {
 		String inp = "BdcbACbaDB";
 		System.out.println(swapAlphabets(inp));
 	}
-
-	private String swapAlphabets3(String inp) {
+	
+	private String swapAlphabets(String inp) {
+		String returnStr="";
+		Set<Character> set=new LinkedHashSet<>();
+		for (int i = 0; i < inp.length(); i++) {
+			boolean add=set.add(inp.charAt(i));
+			if(add) returnStr+=Character.toString(inp.charAt(i));
+			
+			if(Character.isUpperCase(inp.charAt(i))) {
+				add=set.add(Character.toLowerCase(inp.charAt(i)));
+				if(add) returnStr+=Character.toString(Character.toLowerCase(inp.charAt(i)));
+			}else {
+				add=set.add(Character.toUpperCase(inp.charAt(i)));
+				if(add) returnStr+=Character.toString(Character.toUpperCase(inp.charAt(i)));
+			}
+		}
+		
+		return returnStr;
+	}
+	
+	private String swapAlphabets4(String inp) {
 		List<String> lst = new ArrayList<String>();
 
 		for (String s : inp.split("")) {
@@ -53,7 +75,7 @@ public class SwapAlphabets {
 		return String.join("", lst);
 	}
 
-	private String swapAlphabets(String inp) {
+	private String swapAlphabets1(String inp) {
 		List<String> all = new ArrayList<String>();
 		List<String> unique = new ArrayList<String>();
 
@@ -70,8 +92,8 @@ public class SwapAlphabets {
 			if (all.contains(t)) {
 				op = op.concat(s).concat(t);
 				all.remove(t);
-			} else
-				op = op.concat(s);
+			} //else
+				//op = op.concat(s);
 		}
 
 		return op;
@@ -100,7 +122,7 @@ public class SwapAlphabets {
 	}
 
 	// Not working
-	private String swapAlphabets1(String inp) {
+	private String swapAlphabets3(String inp) {
 		String s = "";
 		List<Character> list = new ArrayList<Character>();
 
@@ -110,9 +132,9 @@ public class SwapAlphabets {
 			if (list.contains((Character) chr)) {
 				s += Character.toString(chr) + Character.toString(c);
 				list.remove((Character) chr);
-			} else {
-				list.add(c);
-			}
+			} //else {
+				//list.add(c);
+			//}
 		}
 		return s;
 	}
