@@ -21,11 +21,58 @@ public class Q3_Ajay {
 	 * with values in input2 find the distance between and compare it with the
 	 * existing min distance finally return the min distance
 	 */
+
 	@Test
 	public void example1() {
 		int[] arr = { 5, 6, 8, 9, 1, 4, 1 };
+		int x = 8, y = 1;
+		System.out.println(minDist(arr, x, y));
+	}
+
+	@Test
+	public void example2() {
+		int[] arr = { 1, 6, 5, 9, 9, 4, 8 };
+		int x = 8, y = 1;
+		System.out.println(minDist(arr, x, y));
+	}
+
+	@Test
+	public void example3() {
+		int[] arr = { 1, 6, 5, 9, 1, 4, 1 };
+		int x = 8, y = 1;
+		System.out.println(minDist(arr, x, y));
+	}
+
+	@Test
+	public void example4() {
+		int[] arr = { 1, 6, 5, 9, 1, 4, 1 };
+		int x = 8, y = -1;
+		System.out.println(minDist(arr, x, y));
+	}
+
+	private int minDist(int[] arr, int x, int y) {
+		int start = 0, end = 0;
+		int dit = Integer.MAX_VALUE;
+
+		for (end = 0; end < arr.length; end++) {
+			if (arr[end] == x || arr[end] == y) {
+				if (arr[end] != arr[start])
+					dit = Math.min(dit, end - start);
+
+				start = end;
+			}
+		}
+		if (dit == Integer.MAX_VALUE)
+			throw new RuntimeException("There is no occurance");
+
+		return dit;
+	}
+
+	@Test
+	public void example() {
+		int[] arr = { 5, 6, 8, 9, 1, 4, 1 };
 		int[] inp = { 8, 1 };
-		System.out.println(findMindistance(arr, inp));
+		// System.out.println(findMindistance(arr, inp));
 	}
 
 	private int findMindistance(int[] arr, int[] inp) {

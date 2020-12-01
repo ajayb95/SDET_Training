@@ -59,23 +59,96 @@ public class Q2_Ajay {
 		String inp = "abcd";
 		System.out.println(leastRepeating(inp));
 	}
-	
+
 	@Test
 	public void example4() {
-		String inp = "aabbccc";
+		String inp = "aabbcc";
 		System.out.println(leastRepeating(inp));
 	}
 
+	@Test
+	public void example5() {
+		String inp = "aaabbccc";
+		System.out.println(leastRepeating(inp));
+	}
+
+	private String leastRepeating3(String inp) {
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+
+		for (char c : inp.toCharArray())
+			if (inp.indexOf(c) != inp.lastIndexOf(c))
+				map.put(c, map.getOrDefault(c, 0) + 1);
+
+		if (map.isEmpty())
+			return "";
+
+		int min = Collections.min(map.values());
+		char c = 0;
+		for (Map.Entry<Character, Integer> m : map.entrySet())
+			if (m.getValue() == min)
+				c = m.getKey();
+
+		return Character.toString(c);
+	}
+
 	private String leastRepeating(String inp) {
+		int[] arr = new int[128];
+
+		for (char c : inp.toCharArray())
+			if (inp.indexOf(c) != inp.lastIndexOf(c))
+				arr[c]++;
+
+		int f = 0, s = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[f] <= arr[i]) {
+				s = f;
+				f = i;
+			} else if (arr[s] <= arr[i] && arr[i] != arr[f])
+				s = i;
+		}
+
+		if (!inp.contains(Character.toString((char) s)))
+			return "There is no second duplicate character";
+
+		return Character.toString((char) s);
+	}
+
+	private String leastRepeating2(String inp) {
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+
+		for (char c : inp.toCharArray())
+			if (inp.indexOf(c) != inp.lastIndexOf(c))
+				map.put(c, map.getOrDefault(c, 0) + 1);
+
+		if (map.isEmpty())
+			return "There is no repeating character";
+
+		int i = 0;
+		char ch = 0;
+		for (char c : inp.toCharArray()) {
+			if (inp.indexOf(c) != inp.lastIndexOf(c)) {
+				if (i == 0 || i >= map.get(c)) {
+					i = map.get(c);
+					ch = c;
+				}
+			}
+		}
+		return Character.toString(ch);
+	}
+
+	private String leastRepeating1(String inp) {
 		Map<Character, Integer> map = new HashMap<>();
 		for (char c : inp.toCharArray())
 			if (inp.indexOf(c) != inp.lastIndexOf(c))
 				map.put(c, map.getOrDefault(c, 0) + 1);
-		if(map.isEmpty())
+		if (map.isEmpty())
 			return "";
-		
-		Object[] array = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).flatMap(m->Stream.of(m.getKey())).toArray();
-		//Object[] array2 = map.entrySet().stream().filter(m->m.getValue()==(map.get(array[0]))).toArray();
+
+		Object[] array = map.entrySet().stream().sorted(Map.Entry.comparingByValue())
+				.flatMap(m -> Stream.of(m.getKey())).toArray();
+		// Object[] array2 =
+		// map.entrySet().stream().filter(m->m.getValue()==(map.get(array[0]))).toArray();
 		return Character.toString((char) array[0]);
 	}
 }

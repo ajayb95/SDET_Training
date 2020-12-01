@@ -54,12 +54,62 @@ public class MinWindow {
 
 	@Test
 	public void example5() {
-		String str1 = "ab";
+		String str1 = "bb";
 		String str2 = "a";
 		System.out.println(minWindow(str1, str2));
 	}
 
+	//Working
 	private String minWindow(String str1, String str2) {
+		int l1 = str1.length();
+		int l2 = str2.length();
+		
+		//if pattern is greater than actual string then return as no window exists
+		if (l2 > l1)
+			throw new RuntimeException("No window exists");
+		
+		//Initialize ASCII arrays for string and pattern
+		int[] str = new int[126];
+		int[] pat = new int[126];
+
+		//Find character count in pattern
+		for (char c : str2.toCharArray())
+			pat[c]++;
+		
+		int start = 0, startInd = -1, minLen = Integer.MAX_VALUE, cnt = 0;
+		
+		//Slide through string
+		for (int j = 0; j < l1; j++) {
+			str[str1.charAt(j)]++;	//add count of the character from string
+
+			if (pat[str1.charAt(j)] != 0 && str[str1.charAt(j)] <= pat[str1.charAt(j)]) //if character available in pattern is also available in string
+				cnt++;	//increase the count
+			
+			//increase the window until all character in pattern is available in window 
+			if (cnt == l2) {
+				// Try to minimize the window i.e., check if any character is occurring more no. of times 
+                // than its occurrence in pattern, if yes then remove it from starting and also remove 
+                // the useless characters. 
+				while (str[str1.charAt(start)] > pat[str1.charAt(start)] || pat[str1.charAt(start)] == 0) {
+					if (str[str1.charAt(start)] > pat[str1.charAt(start)])
+						str[str1.charAt(start)]--;
+					start++;
+				}
+				int winLen = j - start + 1;
+				if (minLen > winLen) {
+					minLen = winLen;
+					startInd = start;
+				}
+			}
+		}
+
+		if (startInd == -1)
+			throw new RuntimeException("No window exists");
+
+		return str1.substring(startInd, startInd + minLen);
+	}
+
+	private String minWindow2(String str1, String str2) {
 		if (str2.length() > str1.length())
 			return "";
 
