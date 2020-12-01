@@ -45,6 +45,18 @@ public class P1_RainwaterTrapping {
 		int[] arr = { 1, 3, 2, 1, 2, 1 };
 		rainTrapping(arr);
 	}
+	
+	@Test
+	public void example6() {
+		int[] arr = { 1, 2, 1, 2, 1, 2 };
+		rainTrapping(arr);
+	}
+	
+	@Test
+	public void example7() {
+		int[] arr = { 4,2,0,3,2,5 };
+		rainTrapping(arr);
+	}
 
 	private void rainTrapping(int[] arr) {
 		int max = Integer.MIN_VALUE;
@@ -62,6 +74,10 @@ public class P1_RainwaterTrapping {
 		int cnt = 0;
 		max = Integer.MIN_VALUE;
 
+		//for (int i = 0; i < arr.length; i++) {
+			
+		//}
+		
 		if (left.length > 2) {
 			for (int i = 0; i < left.length; i++) {
 				if (max <= left[i])
@@ -79,7 +95,6 @@ public class P1_RainwaterTrapping {
 					cnt += max - right[i];
 			}
 		}
-
 		System.out.println(cnt);
 	}
 

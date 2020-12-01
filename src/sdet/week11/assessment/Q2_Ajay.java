@@ -1,5 +1,6 @@
 package sdet.week11.assessment;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -71,7 +72,26 @@ public class Q2_Ajay {
 		String inp = "aaabbccc";
 		System.out.println(leastRepeating(inp));
 	}
-
+	
+	private char leastOcc(String s) 
+	{	
+		char res = ' ';
+		List<Integer> list = new ArrayList<Integer>();
+		
+		int[] asChar = new int[127];
+		
+		for (int i = 0; i < s.length(); i++) 
+		{
+			asChar[s.charAt(i) - '!']++;
+			if(asChar[s.charAt(i) - '!'] != 0)
+			{
+				list.add(asChar[s.charAt(i) - '!']);
+			}
+			
+		}
+		System.out.println(list);
+		return res;
+	}
 	private String leastRepeating3(String inp) {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 
