@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -73,8 +74,8 @@ public class Q2_Ajay {
 		System.out.println(leastRepeating(inp));
 	}
 	
-	/*
-	 char secondLeastChar = 0 , leastChar =0;
+	private char leastRepeating(String input) {
+		char secondLeastChar = 0 , leastChar =0;
 		int secondLeast =Integer.MAX_VALUE , least =Integer.MAX_VALUE;
 
 		LinkedHashMap<Character,Integer> counter = new LinkedHashMap<>();
@@ -105,9 +106,11 @@ public class Q2_Ajay {
 			return 0;
 
 		return secondLeastChar;
-	 */
-	private char leastOcc(String s) 
+	}
+	
+	private char leastRepeating5(String s) 
 	{	
+		System.out.println('a'-'!');
 		char res = ' ';
 		List<Integer> list = new ArrayList<Integer>();
 		
@@ -125,7 +128,7 @@ public class Q2_Ajay {
 		System.out.println(list);
 		return res;
 	}
-	private String leastRepeating3(String inp) {
+	private String leastRepeating4(String inp) {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 
 		for (char c : inp.toCharArray())
@@ -144,7 +147,7 @@ public class Q2_Ajay {
 		return Character.toString(c);
 	}
 
-	private String leastRepeating(String inp) {
+	private String leastRepeating3(String inp) {
 		int[] arr = new int[128];
 
 		for (char c : inp.toCharArray())
