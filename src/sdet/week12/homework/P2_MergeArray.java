@@ -32,11 +32,18 @@ public class P2_MergeArray {
 		int[] nums2 = { 1, 2, 3 };
 		sortArray(nums1, nums2);
 	}
-	
+
 	@Test
 	public void example3() {
 		int[] nums1 = { -6, -5, -1, 0, 0, 0 };
 		int[] nums2 = { -4, -2, 3 };
+		sortArray(nums1, nums2);
+	}
+
+	@Test
+	public void example4() {
+		int[] nums1 = { 1, 2, 3, 7, 8, 0, 0, 0, 0 };
+		int[] nums2 = { 2, 5, 6, 7 };
 		sortArray(nums1, nums2);
 	}
 

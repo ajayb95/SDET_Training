@@ -73,6 +73,39 @@ public class Q2_Ajay {
 		System.out.println(leastRepeating(inp));
 	}
 	
+	/*
+	 char secondLeastChar = 0 , leastChar =0;
+		int secondLeast =Integer.MAX_VALUE , least =Integer.MAX_VALUE;
+
+		LinkedHashMap<Character,Integer> counter = new LinkedHashMap<>();
+
+		for(char eachChar : input.toCharArray())
+			counter.put(eachChar, counter.getOrDefault(eachChar,0)+1);
+
+		for(Entry<Character, Integer> entrySet: counter.entrySet()) {
+			int currentValue = entrySet.getValue();
+			char currentChar = entrySet.getKey();
+
+			if(currentValue < least) {
+				//exiting least to second least
+				secondLeastChar=leastChar;
+				secondLeast=least;
+
+				//current value set to least set
+				least=currentValue;
+				leastChar = currentChar;
+			}else if(currentValue <= secondLeast && currentValue > least) {
+				//current value set to second least set
+				secondLeast= currentValue;
+				secondLeastChar = currentChar;
+			}
+		}
+
+		if(secondLeast==Integer.MAX_VALUE)
+			return 0;
+
+		return secondLeastChar;
+	 */
 	private char leastOcc(String s) 
 	{	
 		char res = ' ';
