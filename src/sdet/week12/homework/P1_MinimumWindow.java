@@ -24,43 +24,55 @@ public class P1_MinimumWindow {
 
 	@Test
 	public void example1() {
-		String s="ADOBECODEBANC";
-		String t="ABC";
+		String s = "ADOBECODEBANC";
+		String t = "ABC";
 		System.out.println(minWindow(s, t));
 	}
-	
+
 	@Test
 	public void example2() {
-		String s="a";
-		String t="a";
+		String s = "a";
+		String t = "a";
 		System.out.println(minWindow(s, t));
 	}
-	
-	private String minWindow(String s,String t) {
-		int slen=s.length();
-		int tlen=t.length();
-		
-		if(tlen>slen)
+
+	private String minWindow(String s, String t) {
+		int slen = s.length();
+		int tlen = t.length();
+
+		if (tlen > slen)
 			return "";
-		
-		int[] sarr=new int[126];
-		int[] tarr=new int[126];
-		
+
+		int[] sarr = new int[126];
+		int[] tarr = new int[126];
+
 		for (char c : t.toCharArray())
 			tarr[c]++;
-		
-		int start=0,startind=-1,minLen=Integer.MAX_VALUE,cnt=0;
-		
+
+		int start = 0, startind = -1, minLen = Integer.MAX_VALUE, cnt = 0;
 		for (int end = 0; end < slen; end++) {
 			sarr[s.charAt(end)]++;
-			
-			if(sarr[s.charAt(end)]<=tarr[s.charAt(end)])
+
+			if (sarr[s.charAt(end)] <= tarr[s.charAt(end)])
 				cnt++;
-			
-			if(cnt==tlen) {
-				//while()
+
+			if (cnt == tlen) {
+				while (sarr[s.charAt(start)] > tarr[s.charAt(start)] || tarr[s.charAt(start)] == 0) {
+					if (sarr[s.charAt(start)] > tarr[s.charAt(start)])
+						sarr[s.charAt(start)]--;
+					start++;
+				}
+				int winLen = end - start + 1;
+				if (winLen < minLen) {
+					minLen = winLen;
+					startind = start;
+				}
 			}
 		}
-		return t;
+
+		if (startind == -1)
+			return "";
+
+		return s.substring(startind, startind + minLen);
 	}
 }
