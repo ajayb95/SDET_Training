@@ -40,6 +40,13 @@ public class P2_LongestSubarray {
 		int k = 3;
 		longSubarray(arr, k);
 	}
+	
+	@Test
+	public void example3() {
+		int[] arr = { 1,1,1,1,1,1,1,1 };
+		int k = 3;
+		longSubarray(arr, k);
+	}
 
 	private void longSubarray(int[] arr, int k) {
 		
