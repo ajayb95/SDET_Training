@@ -73,61 +73,77 @@ public class Q2_Ajay {
 		String inp = "aaabbccc";
 		System.out.println(leastRepeating(inp));
 	}
-	
-	private char leastRepeating(String input) {
-		char secondLeastChar = 0 , leastChar =0;
-		int secondLeast =Integer.MAX_VALUE , least =Integer.MAX_VALUE;
 
-		LinkedHashMap<Character,Integer> counter = new LinkedHashMap<>();
+	private String leastRepeating(String input) {
+		Map<String, Integer> map = new HashMap<>();
+		// Arrays.stream(input.split("")).forEach(s->map.put(s, map.getOrDefault(s,
+		// 0)+1));
+		for (String s : input.split(""))
+			if (input.indexOf(s.charAt(0)) != input.lastIndexOf(s.charAt(0)))
+				map.put(s, map.getOrDefault(s, 0) + 1);
 
-		for(char eachChar : input.toCharArray())
-			counter.put(eachChar, counter.getOrDefault(eachChar,0)+1);
+		if (map.isEmpty())
+			return "";
 
-		for(Entry<Character, Integer> entrySet: counter.entrySet()) {
+		int min = Collections.min(map.values());
+		List<String> collect = map.entrySet().stream().filter(m -> m.getValue() == min)
+				.flatMap(s -> Stream.of(s.getKey())).collect(Collectors.toList());
+
+		return collect.get(collect.size() - 1);
+	}
+
+	private char leastRepeating6(String input) {
+		char secondLeastChar = 0, leastChar = 0;
+		int secondLeast = Integer.MAX_VALUE, least = Integer.MAX_VALUE;
+
+		LinkedHashMap<Character, Integer> counter = new LinkedHashMap<>();
+
+		for (char eachChar : input.toCharArray())
+			counter.put(eachChar, counter.getOrDefault(eachChar, 0) + 1);
+
+		for (Entry<Character, Integer> entrySet : counter.entrySet()) {
 			int currentValue = entrySet.getValue();
 			char currentChar = entrySet.getKey();
 
-			if(currentValue < least) {
-				//exiting least to second least
-				secondLeastChar=leastChar;
-				secondLeast=least;
+			if (currentValue < least) {
+				// exiting least to second least
+				secondLeastChar = leastChar;
+				secondLeast = least;
 
-				//current value set to least set
-				least=currentValue;
+				// current value set to least set
+				least = currentValue;
 				leastChar = currentChar;
-			}else if(currentValue <= secondLeast && currentValue > least) {
-				//current value set to second least set
-				secondLeast= currentValue;
+			} else if (currentValue <= secondLeast && currentValue > least) {
+				// current value set to second least set
+				secondLeast = currentValue;
 				secondLeastChar = currentChar;
 			}
 		}
 
-		if(secondLeast==Integer.MAX_VALUE)
+		if (secondLeast == Integer.MAX_VALUE)
 			return 0;
 
 		return secondLeastChar;
 	}
-	
-	private char leastRepeating5(String s) 
-	{	
-		System.out.println('a'-'!');
+
+	private char leastRepeating5(String s) {
+		System.out.println('a' - '!');
 		char res = ' ';
 		List<Integer> list = new ArrayList<Integer>();
-		
+
 		int[] asChar = new int[127];
-		
-		for (int i = 0; i < s.length(); i++) 
-		{
+
+		for (int i = 0; i < s.length(); i++) {
 			asChar[s.charAt(i) - '!']++;
-			if(asChar[s.charAt(i) - '!'] != 0)
-			{
+			if (asChar[s.charAt(i) - '!'] != 0) {
 				list.add(asChar[s.charAt(i) - '!']);
 			}
-			
+
 		}
 		System.out.println(list);
 		return res;
 	}
+
 	private String leastRepeating4(String inp) {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 
