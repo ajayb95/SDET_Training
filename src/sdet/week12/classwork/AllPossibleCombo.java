@@ -32,6 +32,9 @@ remove last element from list
 */
 
 public class AllPossibleCombo {
+
+	int i = 0;
+
 	@Test
 	public void example1() {
 		int[] nums = { 1, 2, 3 };
@@ -40,27 +43,23 @@ public class AllPossibleCombo {
 
 	private List<List<Integer>> possibleCombo(int[] nums) {
 		List<List<Integer>> result = new ArrayList<>();
-		for (int i = 0; i < nums.length; i++) {
+		for (; i <= nums.length; i++) {
 			findCombo(nums, result, new ArrayList<>(), 0);
 		}
 		return result;
 	}
 
 	private void findCombo(int[] nums, List<List<Integer>> result, List<Integer> combo, int start) {
-		if (start == nums.length) {
+		if (combo.size() == i) {
 			List<Integer> temp = new ArrayList<>(combo);
-			// Collections.sort(temp);
 			if (!result.contains(temp))
 				result.add(temp);
 			return;
 		}
 
-		// if(start==nums.length)
-		// return;
-
-		for (int i = start; i < nums.length; i++) {
-			combo.add(nums[i]);
-			findCombo(nums, result, combo, i + 1);
+		for (int j = start; j < nums.length; j++) {
+			combo.add(nums[j]);
+			findCombo(nums, result, combo, j + 1);
 			combo.remove(combo.size() - 1);
 		}
 	}

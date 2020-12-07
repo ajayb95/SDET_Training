@@ -46,8 +46,22 @@ public class MovePositive {
 		int[] arr = { -1, -3, -5, 7, -8 };
 		movePositive(arr);
 	}
-
+	
 	private void movePositive(int[] arr) {
+		int start=0,left=0;
+		int end=arr.length-1,right=arr.length-1;
+		int[] op=new int[arr.length];
+		
+		while(start<arr.length) {
+			if(arr[start++]<1)
+				op[left++]=arr[start-1];
+			if(arr[end--]>0)
+				op[right--]=arr[end+1];
+		}
+		System.out.println(Arrays.toString(op));
+	}
+	
+	private void movePositive1(int[] arr) {
 		int p = 0, n = 0;
 
 		while (n < arr.length) {

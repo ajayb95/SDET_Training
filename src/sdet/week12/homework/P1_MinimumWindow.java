@@ -53,7 +53,7 @@ public class P1_MinimumWindow {
 		for (int end = 0; end < slen; end++) {
 			sarr[s.charAt(end)]++;
 
-			if (sarr[s.charAt(end)] <= tarr[s.charAt(end)])
+			if (tarr[s.charAt(end)] != 0 && sarr[s.charAt(end)] <= tarr[s.charAt(end)])
 				cnt++;
 
 			if (cnt == tlen) {
