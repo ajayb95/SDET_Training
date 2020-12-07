@@ -1,0 +1,16 @@
+1. Valid user name
+e.g.: test1test@gmail.com, test_test@gmail.com, testtest@gmail.com
+
+2. Valid domain name
+e.g.: gmail.com, outlook.co.in
+
+3. User name field should not exceeds max count (apply BVA)
+
+4.User name should not start with digits or special characters
+e.g.: 1test@gmail.com
+
+5. User name should not have special characters (except _ or .)
+e.g.: test$leaf@gmail.com
+
+6. Invalid domain name
+e.g.: T7et.com
