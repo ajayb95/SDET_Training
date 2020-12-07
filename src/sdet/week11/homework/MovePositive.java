@@ -19,7 +19,7 @@ create 2 pointer p and n and both in same position
 if negative, swap elements in pth and nth position and increment both
 else increment n
 loop till n reaches end of the array
- */
+*/
 
 public class MovePositive {
 
