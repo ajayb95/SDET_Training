@@ -1,5 +1,7 @@
 package sdet.week12.assessment;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class Q3_Ajay {
@@ -22,6 +24,26 @@ public class Q3_Ajay {
 		System.out.println(reverseText(inp));
 	}
 
+	private String reverseText(String inp) {
+		if (!inp.contains(" "))
+			return inp;
+
+		String[] split = inp.split(" ");
+
+		for (int i = 1; i < split.length; i += 2)
+			split[i] = new StringBuilder(split[i]).reverse().toString();
+
+		int left = 0, right = split.length - 1;
+
+		while (left < right) {
+			String temp = split[left];
+			split[left++] = split[right];
+			split[right--] = temp;
+		}
+
+		return String.join(" ", split);
+	}
+
 	// Pseudo code
 	// Space complexity: O[N]
 	// Time complexity: O[N]
@@ -31,7 +53,7 @@ public class Q3_Ajay {
 	 * the string
 	 */
 
-	private String reverseText(String inp) {
+	private String reverseText1(String inp) {
 		String[] split = inp.split(" ");
 		if (split.length < 2)
 			return inp;

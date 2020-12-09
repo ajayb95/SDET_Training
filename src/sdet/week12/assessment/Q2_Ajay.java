@@ -1,5 +1,6 @@
 package sdet.week12.assessment;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -22,17 +23,42 @@ public class Q2_Ajay {
 		int[] inp = { 1, 2, 3, 4, 2, 3, 4 };
 		System.out.println(findDuplicates(inp));
 	}
-	
+
 	@Test
 	public void example3() {
 		int[] inp = { 1, 2, 3, 4 };
 		System.out.println(findDuplicates(inp));
 	}
-	
+
 	@Test
 	public void example4() {
 		int[] inp = { 1 };
 		System.out.println(findDuplicates(inp));
+	}
+
+	private String findDuplicates(int[] inp) {
+		if (inp.length < 2)
+			throw new RuntimeException("There is no frequent element in the array");
+
+		int[] nums = new int[10];
+		int maxOcc = Integer.MIN_VALUE;
+		List<Integer> output = new ArrayList<Integer>();
+
+		for (int i = 0; i < inp.length; i++) {
+			nums[inp[i]]++;
+
+			if (nums[inp[i]] > maxOcc && nums[inp[i]] > 1) {
+				maxOcc = nums[inp[i]];
+				output.clear();
+				output.add(inp[i]);
+			} else if (nums[inp[i]] == maxOcc && nums[inp[i]] > 1)
+				output.add(inp[i]);
+		}
+
+		if (maxOcc == Integer.MIN_VALUE)
+			throw new RuntimeException("There is no frequent element in the array");
+
+		return output + " repeating " + maxOcc + " times.";
 	}
 
 	// Pseudo code
@@ -45,7 +71,7 @@ public class Q2_Ajay {
 	 * stream
 	 */
 
-	private String findDuplicates(int[] inp) {
+	private String findDuplicates1(int[] inp) {
 		Map<Integer, Integer> map = new HashMap<>();
 
 		if (inp.length < 2)
