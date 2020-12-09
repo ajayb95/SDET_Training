@@ -21,26 +21,26 @@ public class P1_LongSubstring {
 
 	@Test
 	public void example1() {
-		String s = "eceba";
+		String s = "ecebaaaaee";
 		int k = 2;
 		System.out.println(longSubstring(s, k));
-		System.out.println(bruteForce(s, k));
+		// System.out.println(bruteForce(s, k));
 	}
 
 	@Test
 	public void example2() {
-		String s = "Aa";
+		String s = "AAa";
 		int k = 1;
 		System.out.println(longSubstring(s, k));
-		System.out.println(bruteForce(s, k));
+		// System.out.println(bruteForce(s, k));
 	}
 
 	@Test
 	public void example3() {
 		String s = "abcd";
-		int k = 1;
+		int k = 5;
 		System.out.println(longSubstring(s, k));
-		System.out.println(bruteForce(s, k));
+		// System.out.println(bruteForce(s, k));
 	}
 
 	@Test
@@ -48,15 +48,82 @@ public class P1_LongSubstring {
 		String s = "";
 		int k = 1;
 		System.out.println(longSubstring(s, k));
-		System.out.println(bruteForce(s, k));
+		// System.out.println(bruteForce(s, k));
 	}
 
 	@Test
 	public void example5() {
-		String s = "abcd";
-		int k = -1;
+		String s = "Muraleedaaran";
+		int k = 3;
 		System.out.println(longSubstring(s, k));
-		System.out.println(bruteForce(s, k));
+		// System.out.println(bruteForce(s, k));
+	}
+
+	@Test
+	public void example6() {
+		String s = "bacaaab";
+		int k = 2;
+		System.out.println(longSubstring(s, k));
+		// System.out.println(bruteForce(s, k));
+	}
+
+	// Set
+	private int longSubstring2(String s, int k) {
+		Set<Character> set = new HashSet<>();
+		int start = 0, end = 0, maxLen = -1;
+
+		while (end < s.length()) {
+			set.add(s.charAt(end++));
+
+			if (set.size() <= k)
+				maxLen = Math.max(maxLen, end - start);
+			else {
+				start++;
+				if (!s.substring(start, end).contains(Character.toString(s.charAt(start - 1))))
+					set.remove(s.charAt(start - 1));
+			}
+		}
+
+		if (maxLen == -1)
+			throw new RuntimeException("Invalid input");
+
+		return maxLen;
+	}
+
+	// Ascii
+	/*
+	 * Two pointer add count of each character occurance in an ASCII array if the
+	 * added character is unique, increase the counter if counter is less than or
+	 * equal to k, find the max length by comparing current length with previous
+	 * length else, decrease the occurance of the start character and check if the
+	 * start character occurance is zero if so then decrease the count
+	 */
+
+	private int longSubstring(String s, int k) {
+		int start = 0, end = 0;
+		int cnt = 0;
+		int maxLen = -1;
+		int[] arr = new int[256];
+
+		while (end < s.length()) {
+			if (arr[s.charAt(end)] == 0) {
+				cnt++;
+			}
+			arr[s.charAt(end++)]++;
+
+			if (cnt <= k)
+				maxLen = Math.max(maxLen, end - start);
+			else {
+				arr[s.charAt(start)]--;
+				if (arr[s.charAt(start++)] == 0)
+					cnt--;
+			}
+		}
+
+		if (maxLen == -1)
+			throw new RuntimeException("Invalid input");
+
+		return maxLen;
 	}
 
 	// Pseudo Code
@@ -69,7 +136,7 @@ public class P1_LongSubstring {
 	 * doesn't matches k, remove start element from the map when iterated through
 	 * each element from the string, return the max length
 	 */
-	private int longSubstring(String s, int k) {
+	private int longSubstring1(String s, int k) {
 		if (s.length() == 0 || k <= 0)
 			throw new RuntimeException("Invalid input");
 
