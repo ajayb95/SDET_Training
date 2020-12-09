@@ -1,0 +1,69 @@
+//7
+
+Q01:
+
+
+Field level Validation:
+
+1. Verify whether the  card number field is accepting only right format 
+    
+16 digit valid numbers
+<16 digit card numbers 
+>16 digit card numbers 
+Alphabets/Special characters
+Blank
+
+2. Verify whether the expiration date field is accepting right data
+
+Select Date using date picker
+Enter valid date in text box
+Enter invalid late(special characters/alphabets)
+Enter Past date
+Select Past Date
+Enter Date/Year which does not match with card
+Blank
+
+3. Verify whether the cvv field is accepting right data
+
+Valid cvv
+>3 characters 
+<3 characters 
+3 numbers but doesn't match with card 
+Alphabets/Special characters
+Blank
+
+4. Verify that cvv is masked and it is not visible in DOM - Security
+
+5. Verify whether the Name field is accepting right data
+
+Valid name 
+Numbers/Special characters
+Blank
+<Min Length
+>Max length
+
+6.Verify whether the card is valid or not 
+
+Active card 
+Inactive card 
+Expired card 
+Blocked card
+Fraudulent card
+
+7. Verify whether the payment gateway is validating otp/password (sms/email)
+
+Valid OTP
+Invalid OTP
+Expired OTP
+Multiple OTP
+Valid Password
+Invalid Password
+Parallel transactions (Different browsers/devices/locations)
+
+8. Verify whether the cache is not getting carried over in refresh/back actions
+9. Verify whether timeout is handled as expected 
+10. Verify whether transaction is getting aborted in case of any network issues
+
+
+
+
