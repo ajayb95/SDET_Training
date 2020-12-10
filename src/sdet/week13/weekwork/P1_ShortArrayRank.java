@@ -1,6 +1,8 @@
 package sdet.week13.weekwork;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.junit.Test;
@@ -31,6 +33,18 @@ public class P1_ShortArrayRank {
 		System.out.println(findArrayRank(arr));
 	}
 
+	@Test
+	public void example5() {
+		int[] arr = { 5, 1, 5, 2, 3, 2, 6, 8, 6 };
+		System.out.println(findArrayRank(arr));
+	}
+
+	@Test
+	public void example6() {
+		int[] arr = { 10, 1, 2, 3, 2, 10, 5, 3, 6, 5 };
+		System.out.println(findArrayRank(arr));
+	}
+
 	// Space complexity: O[N]
 	// Time complexity: O[N]
 	private int findArrayRank(int[] arr) {
@@ -39,8 +53,8 @@ public class P1_ShortArrayRank {
 		if (arr.length < 1)
 			return rank;
 
-		Map<Integer, int[]> map = new HashMap<>(); // Storing element as key and int array having start index,
-													// end index and occurrence as value
+		Map<Integer, int[]> map = new LinkedHashMap<>(); // Storing element as key and int array having start index,
+		// end index and occurrence as value
 
 		for (int curr = 0; curr < arr.length; curr++) {
 			if (map.containsKey(arr[curr])) { // Checking if the element is already present in the Map
@@ -55,17 +69,28 @@ public class P1_ShortArrayRank {
 		}
 
 		int minLen = Integer.MAX_VALUE;
+		int maxOcc = 0;
+		int[] copy = null;
 		for (Map.Entry<Integer, int[]> m : map.entrySet()) { // iterate through each key in the map
 			int[] val = m.getValue();
 			if (val[2] > 1) { // if occurrence is greater than one then it is a duplicate
-				if ((val[1] - val[0]) + 1 < minLen) { // check length of the subarray is less than previous length
-					minLen = val[1] - val[0] + 1; // assign new length as min length
-					rank = val[2]; // update the rank with element occurrence in that subarray
+				if (val[2] > maxOcc) { // if the sub array has max number of duplicates, then
+					maxOcc = val[2]; // assign new max
+					copy = Arrays.copyOfRange(arr, val[0], val[1] + 1); // get copy of the array
+					rank = val[2]; // and its rank i.e. max occurrence
+				} else if (val[2] == maxOcc && (val[1] - val[0]) + 1 <= minLen) {
+					// if occurrence equals max occurrence and also less than or equal to previous
+					// minimum array length, then consider this sub array
+					minLen = val[1] - val[0] + 1;
+					copy = Arrays.copyOfRange(arr, val[0], val[1] + 1);
+					rank = val[2];
 				}
+
 			}
 		}
+		System.out.println(Arrays.toString(copy));
+		return rank; // finally return the rank of the minimum subarray
 
 		// map.forEach((k,v)->{System.out.println(k+" - "+Arrays.toString(v));});
-		return rank; // finally return the rank of the minimum subarray
 	}
 }
