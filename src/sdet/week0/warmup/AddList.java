@@ -8,7 +8,7 @@ public class AddList {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String input = "abccdddefghh";
+		String input = "abccdddefghhh";
 		List<String> li=Arrays.asList(input.split(""));
 		System.out.println(li);
 	}
