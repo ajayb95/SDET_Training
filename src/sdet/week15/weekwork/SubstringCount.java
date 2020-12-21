@@ -34,6 +34,7 @@ public class SubstringCount {
 	public void example1() {
 		String input = "aaaba";
 		numberOfSubstrings(input);
+
 	}
 
 	@Test
@@ -43,22 +44,16 @@ public class SubstringCount {
 	}
 
 	public void numberOfSubstrings(String input) {
-		int start = 0, end = 0;
-		Set<Character> set = new HashSet<Character>();
+		int start = 0;
 		int sum = 0;
-
-		for (; end < input.length(); end++) {
-			set.add(input.charAt(end));
-			if(set.size()==2) {
-				start=end;
+		for (int end = 0; end < input.length(); end++) {
+			if (input.charAt(start) == input.charAt(end))
+				sum += end - start + 1;
+			else {
+				start = end;
+				sum += 1;
 			}
-			int t=end-start+1;
-			if(t>1)
-				sum=((t+1)/2)*t;
-			else
-				sum+=((t+1)/2)*t;
 		}
-
 		System.out.println(sum);
 	}
 
