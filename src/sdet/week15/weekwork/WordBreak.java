@@ -38,21 +38,21 @@ public class WordBreak {
 		List<String> wordDict = new ArrayList<>(Arrays.asList("leet", "code"));
 		System.out.println(WordBreaks(s, wordDict));
 	}
-	
+
 	@Test
 	public void example2() {
 		String s = "applepenapple";
 		List<String> wordDict = new ArrayList<>(Arrays.asList("apple", "pen"));
 		System.out.println(WordBreaks(s, wordDict));
 	}
-	
+
 	@Test
 	public void example3() {
 		String s = "catsandog";
 		List<String> wordDict = new ArrayList<>(Arrays.asList("cats", "dog", "sand", "and", "cat"));
 		System.out.println(WordBreaks(s, wordDict));
 	}
-	
+
 	@Test
 	public void example4() {
 		String s = "aaaaaaa";
@@ -60,45 +60,45 @@ public class WordBreak {
 		System.out.println(WordBreaks(s, wordDict));
 	}
 	
+	@Test
+	public void example5() {
+		String s = "goalspecial";
+		List<String> wordDict = new ArrayList<>(Arrays.asList("go","goal","goals","special"));
+		System.out.println(WordBreaks(s, wordDict));
+	}
+
 	private boolean WordBreaks2(String s, List<String> wordDict) {
 		return recursion(s, wordDict, 0);
 	}
-	
-	private boolean recursion(String s,List<String> wordDict,int k) {
-		if(k==s.length())
+
+	private boolean recursion(String s, List<String> wordDict, int k) {
+		if (k == s.length())
 			return true;
-		
-		for (int i = k+1; i <= s.length(); i++) {
-			if(wordDict.contains(s.substring(k, i)) && recursion(s, wordDict, i))
+
+		for (int i = k + 1; i <= s.length(); i++) {
+			if (wordDict.contains(s.substring(k, i)) && recursion(s, wordDict, i))
 				return true;
 		}
 		return false;
 	}
-	
+
 	private boolean WordBreaks(String s, List<String> wordDict) {
-		
-		for (int i = 0; i < wordDict.size(); i++) {
-			
-			for (int j = 0; j < wordDict.size(); j++) {
-				
-				if(s.length()==0)
-					return true;
+		StringBuilder sb=new StringBuilder(s);
+		for (int i = 0; i < sb.length(); i++) {
+			if (wordDict.contains(sb.substring(0, i + 1))) {
+				if (wordDict.contains(sb.substring(i + 1, sb.length())))
+					sb = sb.replace(i+1, sb.length(), "");
+				sb = sb.replace(0, i+1, "");
+				i = -1;
 			}
 		}
-		
-		/*for (int i = 0; i < s.length(); i++) {
-			if(wordDict.contains(s.substring(0, i+1))) {
-				s=s.replaceAll(s.substring(0, i+1), "");
-				i=-1;
-			}
-		}*/
-		
-		if(s.length()==0)
+
+		if (sb.length() == 0)
 			return true;
-		
+
 		return false;
 	}
-	
+
 	private boolean WordBreaks1(String s, List<String> wordDict) {
 		boolean res = false;
 		int left = 0, right = 0, count = 0;
