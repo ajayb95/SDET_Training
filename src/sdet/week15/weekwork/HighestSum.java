@@ -37,21 +37,46 @@ public class HighestSum {
 	}
 	
 	private int divideAndConquer(int[] nums) {
+		
 		return recursion(nums, 0, nums.length-1);
 	}
 	
-	private int recursion(int[] num,int l,int r) {
+	private int recursion(int[] num,int left,int right) {
 		
-		if(l==r)
-			return num[l];
-		int mid=l+(r-l)/2;
-		int left=recursion(num, l, mid);
-		int right=recursion(num, mid+1, r);
-		
-		return Math.max(maxsum, left+right);
+		if(right == left) 
+    	{
+    		return num[left];
+    	}
+    	
+    	int mid = (left + right)/2;
+
+    	int l = recursion(num, left, mid);
+    	int r = recursion(num, mid+1, right);
+    	int m = recurseMid(num,left,mid,right);
+    	return Math.max(Math.max(l,r), m);
 	
 	}
-
+	
+	private int recurseMid(int[] s, int left, int mid, int right) 
+	{
+		int leftSum = Integer.MIN_VALUE, rightSum = Integer.MIN_VALUE;
+		int sum = 0, sum1 = 0;
+		
+		for (int i = mid; i >= left; i--) 
+		{
+			sum+=s[i];
+			if(sum > leftSum) leftSum = sum;
+		}
+		
+		for (int i = mid+1; i <= right; i++) 
+		{
+			sum1+=s[i];
+			if(sum1 > rightSum) rightSum = sum1;
+		}
+		
+		return leftSum+rightSum;
+	}
+	
 	private int kandaneAlgorithm(int[] nums) {
 		if (nums.length == 1)
 			return nums[0];
