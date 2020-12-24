@@ -11,7 +11,7 @@ public class LuhnAlgorithm {
 
 	@Test
 	public void example() {
-		String BIN = "470153123456";
+		String BIN = "502002";
 		generateCard(BIN);
 	}
 
