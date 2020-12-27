@@ -3,6 +3,7 @@ https://www.interviewbit.com/coding-interview-questions/
 https://refactoring.guru/refactoring
 asciitable.com
 https://www.geeksforgeeks.org/java-8-predicate-with-examples/
+https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions
 
 Resume:
 https://www.careercup.com/resume
