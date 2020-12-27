@@ -16,3 +16,8 @@ Selection/Partition Algorithm -> check
 
 https://leetcode.com/problems/backspace-string-compare/
 
+https://leetcode.com/submissions/detail/431491619/
+https://leetcode.com/submissions/detail/426452461/
+https://leetcode.com/problems/grumpy-bookstore-owner/submissions/
+
+https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem
