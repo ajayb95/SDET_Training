@@ -1,4 +1,4 @@
-package sdet.assignment.week8;
+package sdet.week8.homework;
 
 import java.util.HashMap;
 import java.util.Map;

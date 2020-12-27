@@ -73,7 +73,7 @@ public class FindPermutations {
 		for (int i = 0; i < len; i++) {
 			sb = new StringBuilder(input);
 			sb.deleteCharAt(i).insert(0, input.charAt(i));
-			for (int j = 0; j < len; j++) {
+			for (int j = 0; j < len-1; j++) {
 				char c = sb.charAt(1);
 				for (int k = 2; k < len; k++) {
 					sb.deleteCharAt(k - 1);

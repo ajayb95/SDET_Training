@@ -1,4 +1,4 @@
-package sdet.assignment.week8;
+package sdet.week8.homework;
 
 public class Stairs {
 

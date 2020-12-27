@@ -1,4 +1,4 @@
-package sdet.assignment.week7;
+package sdet.week7.homework;
 
 public class P5_SameTree {}
 

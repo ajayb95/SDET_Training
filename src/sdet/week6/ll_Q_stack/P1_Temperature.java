@@ -1,4 +1,4 @@
-package sdet.assignment.week6;
+package sdet.week6.ll_Q_stack;
 
 import java.util.ArrayList;
 import java.util.Arrays;

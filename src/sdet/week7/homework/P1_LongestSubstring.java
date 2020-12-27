@@ -1,4 +1,4 @@
-package sdet.assignment.week7;
+package sdet.week7.homework;
 
 import java.util.ArrayList;
 import java.util.Arrays;
