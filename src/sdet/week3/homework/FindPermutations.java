@@ -1,6 +1,8 @@
 package sdet.week3.homework;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -9,10 +11,41 @@ public class FindPermutations {
 
 	@Test
 	public void example1() {
-		String input = "abcd";
+		String input = "aac";
 		findPermutation(input);
+		permutations(input);
 	}
-
+	
+	private void permutations(String input) {
+		char[] cArr=input.toCharArray();
+		List<String> result=new ArrayList<String>();
+		recursion(cArr, result, 0);
+		System.out.println(result);
+	}
+	
+	private void recursion(char[] cArr,List<String> result,int start) {
+		
+		if(start==cArr.length) {
+			String val = String.valueOf(cArr);
+			if(!result.contains(val))
+				result.add(val);
+			return;
+		}
+		
+		for (int i = start; i < cArr.length; i++) {
+			swap(cArr, start, i);
+			recursion(cArr, result, start+1);
+			swap(cArr, start, i);
+		}
+	}
+	
+	private void swap(char[] cArr,int left,int right) {
+		char temp=cArr[left];
+		cArr[left]=cArr[right];
+		cArr[right]=temp;
+		return;
+	}
+	
 	private void findPermutation1(String input) {
 		StringBuilder sb = new StringBuilder(input);
 		StringBuilder sbr = new StringBuilder(input).reverse();

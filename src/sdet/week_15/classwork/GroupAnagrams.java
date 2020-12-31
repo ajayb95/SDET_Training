@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.Test;
 
@@ -66,7 +68,7 @@ public class GroupAnagrams {
 	private List<List<String>> groupAnagrams(String[] input) {
 		List<List<String>> output = new ArrayList<>();
 		Map<String, List<String>> map = new HashMap<>();
-
+		
 		for (int i = 0; i < input.length; i++) {
 			char[] temp = input[i].toCharArray();
 			Arrays.sort(temp);
