@@ -35,6 +35,13 @@ public class FindUniqueCombinations {
 		int k = 7;
 		System.out.println(uniqueCombo(arr, k));
 	}
+	
+	@Test
+	public void example2() {
+		int[] arr = { 2, 3, 6, 7 };
+		int k = 7;
+		System.out.println(uniqueCombo(arr, k));
+	}
 
 	private List<List<Integer>> uniqueCombo(int[] arr, int k) {
 		List<List<Integer>> output = new ArrayList<>();
@@ -45,7 +52,7 @@ public class FindUniqueCombinations {
 	}
 
 	private void findCombo(int[] arr, int k, List<List<Integer>> output, List<Integer> combo, int start) {
-		if (k >= 0) {
+		if (k <= 0) {
 			if (k == 0)
 				output.add(new ArrayList<>(combo));
 			return;
