@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class FindSubarray {
 
-	//@Test
+	@Test
 	public void eg1() throws Exception {
 		int[] arr = { 1, 7, 4, 3, 1, 2, 1, 5, 1 };
 		int k = 7;
