@@ -1,0 +1,18 @@
+https://leetcode.com/problems/top-k-frequent-words/
+
+Collect as Map:
+*sort map values by descending order
+*limit to output to 2 entries
+*collect as linked hashmap
+
+map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).limit(2).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new))
+
+Sort map by values and if map values equals same sort by key in lexicographical order,
+
+PriorityQueue<String> que=new PriorityQueue<>((entryA,entryB)->map.get(entryA)==map.get(entryB)?entryA.compareTo(entryB):map.get(entryB)-map.get(entryA));
+que.addAll(map.keySet());
+
+while(k--!=0)
+	output.add(que.poll());
+	
+System.out.println(output);
