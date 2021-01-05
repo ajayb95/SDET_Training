@@ -61,4 +61,24 @@ public class JumpGame {
 				return;
 		}
 	}
+	
+	private int jumps(int[] nums) {
+        int count=0,left=0,right=0;
+        
+        for(int i=0;i<nums.length;i++) {
+            right=Math.max(right, i+nums[i]);
+            
+            if(i==left) {
+                left=right;
+                count++;
+            }
+            
+            if(left>=nums.length-1) break;
+            
+        }
+        
+        return count;
+        
+        
+    }
 }
