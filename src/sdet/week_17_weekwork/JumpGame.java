@@ -11,7 +11,8 @@ public class JumpGame {
 	@Test
 	public void example1() {
 		int[] nums = { 2, 3, 1, 1, 4 };
-		System.out.println(findMinJump(nums));
+		//System.out.println(findMinJump(nums));
+		System.out.println(jumps(nums));
 	}
 
 	@Test
