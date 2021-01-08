@@ -16,3 +16,17 @@ while(k--!=0)
 	output.add(que.poll());
 	
 System.out.println(output);
+
+
+Map<Integer, Integer> collect = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(k->k,Collectors.reducing(0, k->1, Integer::sum)));
+
+Map<Integer, Long> map = Arrays
+        .stream(nums)
+        .boxed() // this
+        .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+        
+Set<Integer> range = IntStream.rangeClosed(1, nums.length).boxed().collect(Collectors.toSet());
+
+Set<Character> collect = s.chars().mapToObj(each->(char)each).collect(Collectors.toSet());
+
+Set<Character> set=str.chars().mapToObj(e->(char)e).collect(Collectors.toCollection(TreeSet::new));

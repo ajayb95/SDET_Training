@@ -48,16 +48,37 @@ public class LargestSubarrayLength {
 
 	@Test
 	public void example4() {
-		int[] nums = { 4, 6, 2, 6, 2, 2 };
+		int[] nums = { 4, 6, 2, 6, 2, 2, 7 };
+		int k = 4;
+		System.out.println(Arrays.toString(findLargestSubarray(nums, k)));
+	}
+	
+	@Test
+	public void example5() {
+		int[] nums = { 4, 0, 6, 0, 2, 6, 2, 2 };
 		int k = 3;
 		System.out.println(Arrays.toString(findLargestSubarray(nums, k)));
 	}
 	
-	private int[] findLargestSubarray(int[] arr,int k) {
+	@Test
+	public void example6() {
+		int[] nums = { 4, 0, 2, 0, 2, 4, 0, 3 };
+		int k = 3;
+		System.out.println(Arrays.toString(findLargestSubarray(nums, k)));
+	}
+	
+	@Test
+	public void example7() {
+		int[] nums = { 0, 0, 2, 0, 2, 4, 0, 2 };
+		int k = 3;
+		System.out.println(Arrays.toString(findLargestSubarray(nums, k)));
+	}
+	
+	private int[] findLargestSubarray1(int[] arr,int k) {
 		int maxIndex = 0;
         for(int i=1, j=0; i<=arr.length - k; i++) {
             if(j!=0) j--;
-            while (j < k - 1 && arr[i + j] == arr[maxIndex+j]) 
+            while (j < k - 1 && arr[i + j] <= arr[maxIndex+j]) 
                 j++;
             if(arr[i + j] > arr[maxIndex + j]) 
                 maxIndex = i;
@@ -75,25 +96,25 @@ public class LargestSubarrayLength {
 		 */
 		//Space complexity: O[N]
 		//Time complexity: O[N*M]
-		private int[] findLargestSubarray1(int[] nums, int k) {
-			if (nums.length < k)
-				throw new RuntimeException("Invalid input");
+	private int[] findLargestSubarray(int[] nums, int k) {
+		if (nums.length < k)
+			throw new RuntimeException("Invalid input");
 
-			int prev = 0;
-			for (int i = 1; i <= nums.length - k; i++) {
-				if (nums[prev] < nums[i])
+		int prev = 0;
+		for (int i = 1, inc = 0; i <= nums.length - k; i++) {
+			if (nums[prev] < nums[i])
+				prev = i;
+			inc = 0;
+			while (nums[prev] == nums[i] && inc++ < k - 1 && nums[prev + inc] <= nums[i + inc]) {
+				if (nums[prev + inc] < nums[i + inc]) {
 					prev = i;
-				else if (nums[prev] == nums[i]) {
-					int inc = 0;
-					while (inc++ < k - 1) {
-						if (nums[prev + inc] < nums[i + inc])
-							prev = i;
-					}
+					break;
 				}
 			}
-
-			return Arrays.copyOfRange(nums, prev, prev + k);
 		}
+
+		return Arrays.copyOfRange(nums, prev, prev + k);
+	}
 		
 	private int[] slidingWindow(int[] nums, int k) {
 		int[] copyOf = Arrays.copyOf(nums, k);
