@@ -1,4 +1,4 @@
-package sdet.week_17_weekwork;
+package sdet.week_17.weekwork;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -66,10 +66,5 @@ public class FindOneDuplicate {
 		List<Integer> collect = map.entrySet().stream().filter(mp -> mp.getValue() == 2)
 				.flatMap(fm -> Stream.of(fm.getKey())).collect(Collectors.toList());
 		return collect.get(0);
-	}
-
-	private void findDuplicate(int[] nums) {
-		// Required: space: o[1] and time:o[n]
-
 	}
 }

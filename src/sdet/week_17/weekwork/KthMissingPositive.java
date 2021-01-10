@@ -1,4 +1,4 @@
-package sdet.week_17_weekwork;
+package sdet.week_17.weekwork;
 
 import org.junit.Assert;
 import org.junit.Test;

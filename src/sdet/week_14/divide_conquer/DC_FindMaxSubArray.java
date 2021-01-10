@@ -1,4 +1,4 @@
-package sdet.week_14.classwork;
+package sdet.week_14.divide_conquer;
 
 import org.junit.Assert;
 import org.junit.Test;
