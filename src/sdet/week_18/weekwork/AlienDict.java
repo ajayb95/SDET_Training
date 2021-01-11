@@ -15,6 +15,7 @@ Example 3:
 Input: words = ["z","x","z"]
 Output: ""
 Explanation: The order is invalid, so return "".
+ball, element => ""
 */
 
 public class AlienDict {
