@@ -6,7 +6,7 @@ https://www.geeksforgeeks.org/java-8-predicate-with-examples/
 https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions
 https://www.bigocheatsheet.com/
 https://www.baeldung.com/java-collections-complexity
-https://cp-algorithms.com/string/manacher.html#toc-tgt-2
+https://cp-algorithms.com/string/manacher.html
 https://martinfowler.com/
 
 Resume:
