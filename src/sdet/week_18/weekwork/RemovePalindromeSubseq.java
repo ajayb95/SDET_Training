@@ -52,22 +52,15 @@ public class RemovePalindromeSubseq {
 	}
 
 	private int findMinRemoval(String inp) {
-		int len = inp.length();
-
-		if (len < 2)
-			return len;
-
-		int left = 0, right = 0;
-
-		for (int mid = 0; mid < 2 * len; mid++) {
-			left = mid / 2;
-			right = left + mid % 2;
-			while (left >= 0 && right < len && inp.charAt(left--) == inp.charAt(right++))
-				if(inp.substring(left+1, right).length()==len)
-					return 1;
-		}
-
-		return 2;
+		if(inp.length()==0)
+            return 0;
+        
+        int left=0,right=inp.length()-1;
+        
+        while(left<right)
+            if(inp.charAt(left++)!=inp.charAt(right--))
+                return 2;
+        return 1;
 
 	}
 }
