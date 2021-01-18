@@ -8,6 +8,7 @@ https://www.bigocheatsheet.com/
 https://www.baeldung.com/java-collections-complexity
 https://cp-algorithms.com/string/manacher.html
 https://martinfowler.com/
+Running behind the Google dream: https://link.medium.com/SNjEQ1i81cb
 
 Resume:
 https://www.careercup.com/resume

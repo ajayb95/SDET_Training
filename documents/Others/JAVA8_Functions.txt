@@ -30,3 +30,5 @@ Set<Integer> range = IntStream.rangeClosed(1, nums.length).boxed().collect(Colle
 Set<Character> collect = s.chars().mapToObj(each->(char)each).collect(Collectors.toSet());
 
 Set<Character> set=str.chars().mapToObj(e->(char)e).collect(Collectors.toCollection(TreeSet::new));
+
+int[][] output = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).limit(k).flatMap(fm->Stream.of(fm.getKey())).toArray(int[][]::new);

@@ -46,6 +46,12 @@ public class IntToString {
 		int num = -1234;
 		System.out.println(formatInteger(num));
 	}
+	
+	@Test
+	public void example6() {
+		int num = 12300001;
+		System.out.println(formatInteger(num));
+	}
 
 	private String formatInteger(int num) {
 		if (num == 0)
