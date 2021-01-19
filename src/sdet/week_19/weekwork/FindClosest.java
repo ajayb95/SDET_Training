@@ -1,7 +1,10 @@
 package sdet.week_19.weekwork;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.*;
 
 import org.junit.Test;
 
@@ -34,9 +37,32 @@ public class FindClosest {
 	}
 
 	private void findEachClosestNumbers(int[] arr) {
-		PriorityQueue<Integer> pq=new PriorityQueue<>((a,b)->b-a);
-		
+		TreeSet<Integer> set = new TreeSet<Integer>();
+		set.add(arr[0]);
+		arr[0] = -1;
+		int up, down;
+		for (int i = 0; i < arr.length; i++) {
+			try {
+				up = (Integer) set.ceiling(arr[i]);
+			} catch (Exception e) {
+				up = -1;
+			}
+			try {
+				down = (Integer) set.floor(arr[i]);
+			} catch (Exception e) {
+				down = -1;
+			}
+
+			set.add(arr[i]);
+			if (up - arr[i] < arr[i] - down)
+				arr[i] = up;
+			else
+				arr[i] = down;
+		}
+
+		System.out.println(Arrays.toString(arr));
 	}
+
 	private void findEachClosestNumbers1(int[] arr) {
 		int[] output = new int[arr.length];
 		output[0] = -1;
