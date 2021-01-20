@@ -32,32 +32,48 @@ public class FindClosest {
 
 	@Test
 	public void example2() {
-		int[] arr = { 3, 3, 2, 4, 6, 5, 5, 1 };
+		int[] arr = { 1, 2, 1, 4, 6, 5, 5, 1 };
 		findEachClosestNumbers(arr);
 	}
 
+	@Test
+	public void example3() {
+		int[] arr = { 3, 3, 2, 4, 6, 5, 5, 1 };
+		findEachClosestNumbers(arr);
+	}
+	//Red-Black Tree implementation
 	private void findEachClosestNumbers(int[] arr) {
-		TreeSet<Integer> set = new TreeSet<Integer>();
-		set.add(arr[0]);
-		arr[0] = -1;
+		TreeSet<Integer> set = new TreeSet<>();
 		int up, down;
+		//O[N log N]
 		for (int i = 0; i < arr.length; i++) {
+			set.remove(arr[i]);	//O[log N]
 			try {
-				up = (Integer) set.ceiling(arr[i]);
+				up = set.ceiling(arr[i]);	//O[log N] 
 			} catch (Exception e) {
 				up = -1;
 			}
 			try {
-				down = (Integer) set.floor(arr[i]);
+				down = set.floor(arr[i]);	//O[log N]
 			} catch (Exception e) {
 				down = -1;
 			}
 
+			if (up == arr[i])
+				up = -1;
+			if (down == arr[i])
+				down = -1;
+
 			set.add(arr[i]);
-			if (up - arr[i] < arr[i] - down)
+
+			if (up == -1 && down == -1)
+				arr[i] = -1;
+			else if ((up == -1 && down != -1) || arr[i] - down < up - arr[i])
+				arr[i] = down;
+			else if ((down == -1 && up != -1) || arr[i] - down > up - arr[i])
 				arr[i] = up;
 			else
-				arr[i] = down;
+				arr[i] = Math.min(up, down);
 		}
 
 		System.out.println(Arrays.toString(arr));

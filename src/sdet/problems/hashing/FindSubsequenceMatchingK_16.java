@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 import org.junit.Test;
 
-public class FindSubsequenceMatchingK {
+public class FindSubsequenceMatchingK_16 {
 
 	//Question:
 	/*
