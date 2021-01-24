@@ -41,20 +41,21 @@ public class FindClosest {
 		int[] arr = { 3, 3, 2, 4, 6, 5, 5, 1 };
 		findEachClosestNumbers(arr);
 	}
-	//Red-Black Tree implementation
+
+	// Red-Black Tree implementation
 	private void findEachClosestNumbers(int[] arr) {
 		TreeSet<Integer> set = new TreeSet<>();
 		int up, down;
-		//O[N log N]
+		// O[N log N]
 		for (int i = 0; i < arr.length; i++) {
-			set.remove(arr[i]);	//O[log N]
+			set.remove(arr[i]); // O[log N]
 			try {
-				up = set.ceiling(arr[i]);	//O[log N] 
+				up = set.ceiling(arr[i]); // O[log N]
 			} catch (Exception e) {
 				up = -1;
 			}
 			try {
-				down = set.floor(arr[i]);	//O[log N]
+				down = set.floor(arr[i]); // O[log N]
 			} catch (Exception e) {
 				down = -1;
 			}
