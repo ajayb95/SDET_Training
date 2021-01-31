@@ -58,6 +58,38 @@ public class P9_MeetingRooms {
 	}
 
 	private int findRequiredRooms(int[][] intervals) {
+		int len = intervals.length;
+		int[] start = new int[len];
+		int[] end = new int[len];
+
+		for (int i = 0; i < len; i++) {
+			start[i] = intervals[i][0];
+			end[i] = intervals[i][1];
+		}
+
+		Arrays.sort(start);
+		Arrays.sort(end);
+
+		int sp = 0, ep = 0, res = 0;
+
+		while (sp < len) {
+			if (start[sp] < end[ep])
+				sp++;
+			else if (start[sp] > end[ep])
+				ep++;
+			else {
+				sp++;
+				ep++;
+			}
+
+			res = Math.max(sp - ep, res);
+		}
+
+		return res;
+
+	}
+
+	private int findRequiredRooms1(int[][] intervals) {
 		Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
 
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
