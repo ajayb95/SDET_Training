@@ -7,7 +7,9 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.junit.Test;
-
+/*
+ * In a given string list remove each string that is anagram of earlier string then return remaining array in sorted order
+ */
 public class FunWithAnagrams {
 
 	@Test
@@ -33,8 +35,20 @@ public class FunWithAnagrams {
 		String[] input = { "testing", "tester", "testgin" };
 		getUniqueList(input);
 	}
-
+	
 	private void getUniqueList(String[] input) {
+		Map<String, String> map=new HashMap<>();
+		
+		for(String str:input) {
+			char[] charArray = str.toCharArray();
+			Arrays.sort(charArray);
+			map.putIfAbsent(String.valueOf(charArray), str);
+		}
+		
+		System.out.println(new TreeSet<>(map.values()));
+	}
+	
+	private void getUniqueList1(String[] input) {
 		Map<String, String> map = new HashMap<>();
 
 		for (String str : input)

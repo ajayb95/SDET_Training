@@ -81,11 +81,13 @@ public class AbsoluteDifference {
 		Map<Integer, Integer> map = new HashMap<>();
 		int start = 0, end = 0;
 		while (end < arr.length) {
-			map.put(arr[end], map.getOrDefault(arr[end++], 0) + 1);
+			map.put(arr[end], map.getOrDefault(arr[end], 0) + 1);
 			if (end - start > k)
 				map.put(arr[start], map.get(arr[start]) - 1);
 			if (map.containsValue(2))
 				return true;
+			
+			end++;
 		}
 		return false;
 	}

@@ -1,0 +1,36 @@
+Java
+JDK and JRE?
+can we have multiple main methods?
+Can we have private constructor?
+Overloading constructor?
+overloading vs overridding?
+abstract vs interface?
+can we initialize an abstract class?
+collections?
+list vs set?
+when to use list & set?
+scenario - which one to use for FIFO?
+
+Framework structure - explanation
+libraries used for all utilities
+framework flow
+when to use singleton? 
+
+coding-
+extract numbers from a string
+
+Selenium
+difficulties faced
+handling frames,windows
+exceptions faced
+when will you get nosuchelementexception?
+how to handle staleelementexception
+can we configure implicit wait second time within execution?
+absolute vs relative xpath?
+types of relative xpath?
+
+API
+what types of validations do you perform in automation?
+CRUD operations?
+error codes?
+how to validate the response time?
