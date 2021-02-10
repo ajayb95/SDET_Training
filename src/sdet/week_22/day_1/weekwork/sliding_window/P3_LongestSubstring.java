@@ -1,4 +1,4 @@
-package sdet.week_22.weekwork.sliding_window;
+package sdet.week_22.day_1.weekwork.sliding_window;
 
 /*
 Given a string s that consists of only upper case letters, you can perform at most k operations on that string.

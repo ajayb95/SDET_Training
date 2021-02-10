@@ -1,4 +1,4 @@
-package sdet.week_22.weekwork.two_pointer;
+package sdet.week_22.day_1.weekwork.two_pointer;
 
 /*
 Given a string s, find the length of the longest substring without repeating characters.

@@ -1,4 +1,4 @@
-package sdet.week_22.weekwork.two_pointer;
+package sdet.week_22.day_1.weekwork.two_pointer;
 
 /*
 Given an array nums of integers and integer k, return the maximum sum such that there exists i < j with nums[i] + nums[j] = sum and sum < k. If no i, j exist satisfying this equation, return -1.

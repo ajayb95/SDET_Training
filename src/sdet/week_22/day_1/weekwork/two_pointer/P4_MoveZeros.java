@@ -1,4 +1,4 @@
-package sdet.week_22.weekwork.two_pointer;
+package sdet.week_22.day_1.weekwork.two_pointer;
 
 /*
 Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.

@@ -1,4 +1,4 @@
-package sdet.week_22.weekwork.two_pointer;
+package sdet.week_22.day_1.weekwork.two_pointer;
 
 /*
 Write a function that takes a string as input and reverse only the vowels of a string.
