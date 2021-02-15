@@ -1,4 +1,4 @@
-package sdet.week_22.day_1.weekwork.sliding_window;
+package sdet.week_22.sliding_window;
 
 import java.util.Arrays;
 

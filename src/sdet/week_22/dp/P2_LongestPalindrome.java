@@ -1,4 +1,4 @@
-package sdet.week_22.day_2.weekwork;
+package sdet.week_22.dp;
 
 import org.junit.Assert;
 import org.junit.Test;

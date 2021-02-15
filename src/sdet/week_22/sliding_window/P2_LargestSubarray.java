@@ -1,4 +1,4 @@
-package sdet.week_22.day_1.weekwork.sliding_window;
+package sdet.week_22.sliding_window;
 
 /*
 In array A is larger than some array B if for the first index i where A[i] != B[i], A[i] > B[i].

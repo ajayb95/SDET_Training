@@ -1,0 +1,76 @@
+
+System.setProperty("webdriver.chrome.driver","<driver path>");
+ChromeDriver dr=new ChromeDriver();
+dr.manage.timeOuts.implicitWait(10,Seconds);
+WebDriverWait wt=new WebDriverWait(dr,15);
+dr.get("https://www.redbus.in/");
+WebElement from=dr.findElementByXPath("(//span[@class='fl icon-city icon']//following-sibling::div/input)[1]");
+from.click();
+from.sendKeys("Chennai");
+wt.until(ExpectedConditions.visibilityOfElementLocated(by.className("autoFill"));
+dr.findElementByXPath("//li[starts-with(text(),'Chennai')]").click();
+WebElement to=dr.findElementByXPath("(//span[@class='fl icon-city icon']//following-sibling::div/input)[1]");
+to.click();
+to.sendKeys("Trichy");
+wt.until(ExpectedConditions.visibilityOfElementLocated(by.className("autoFill"));
+dr.findElementByXPath("//li[text()='Trichy']").click();
+dr.findElementById("onward_cal");
+//dr.findElementByXPath("//table//tr/td[text()='12']").click();
+//wt.until(ExpectedConditions.visibilityOfElementLocated("//table//tr/td[text()='12']")).click();
+dr.findElementById("search_btn").click();
+String cnt=wt.until(ExpectedConditions.visibilityOfElementLocated("//span[contains(@class,'busFound')]")).getText().replaceAll("[^0-9]+","");
+List<WebElement> results=dr.findElementsByXPath("//ul[@class='bus-items']/div");
+System.out.println("Total count is "+results.size()+" and displayed count is "+cnt);
+
+WebElement lowFare;
+int minPrice=Integer.MAX_VALUE;
+
+	for(WebElement wb:results){
+		String name=wb.findElement(By.xpath("div[contains(@class,'travels')]")).getText();
+
+	}
+
+FileUtils.copyFile(dr.getScreenshotAs(),new File("<path>"));
+
+from=(//span[@class='fl icon-city icon']//following-sibling::div/input)[1]
+to=(//span[@class='fl icon-city icon']//following-sibling::div/input)[1]
+Properties pr=new Properties();
+pr.load(new file);
+
+//Class name: FindBuses
+
+
+public FindBuses selectFromLocation(String fromLocation){
+WebElement from=dr.findElementByXPath(pr.get("from"));
+//from.click();
+click(from);
+from.sendKeys(fromLocation);
+return this;
+}
+
+public FindBuses selectToLocation(String toLocation){
+WebElement to=dr.findElementByXPath(pr.get("to"));
+to.click();
+to.sendKeys("Trichy");
+return this;
+}
+
+dr.switchTo.frame(we);
+
+dr.getWindowHandle();->current window
+LinkedHashSet<String> set=dr.getWindowHandles();-> all window open
+dr.switchTo.window(window id);
+
+//Runner
+new FindBuses().selectFromLocation("Chennai").selectToLocation("Trichy");
+
+
+public void click(WE element){
+	try{
+
+	}
+	catch(staleElementReferenceException ) {
+		for(5time) click(element);
+	}
+	catch(Exception e)
+}

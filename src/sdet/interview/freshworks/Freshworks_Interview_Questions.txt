@@ -1,0 +1,41 @@
+Round 1:
+1) Roles and Responsibilities
+2) Given a string return the duplicates with occurrences
+Google -> g-2,o-2
+3) Write selenium script for following scenarios (Implicit and Explicit to be used)
+Open redbus.in -> select from and to place -> select date -> click search -> get all the result count -> display all the Travel name, time and price -> click view seat for travel with lowest price -> take snap of the seats
+4) Take any action from above code and rewrite it in POM format
+5) How reusable locators used in framework
+6) How exception is handled in the famework
+7) What all are the exception you came across
+8) Methods in API
+9) Response code in API
+10) Response code you came across
+11) How will you test API in postman (what all are required to test API in postman)
+12) How will you pass request payload if there is no contract document
+13) given an array of integers, return all pairs whose sum matches target
+Input: [1,2,7,6,4,2] target: 8
+Output: (1,7) and (2,6)
+14) How will you move to frame and window
+
+Round 2:
+1) Roles and responsibility
+2) Difference between high priority and low severity
+3) Difference between low priority and high severity
+4) Difference between PUT and PATCH
+5) Difference between smoke and sanity
+6) What is defect management
+7) Response code in API
+8) A functionality in UI broke. how will you debug this?
+9) Test case enumeration for book flight (book movie using bookmyshow) -> google calendar
+10) Agile process followed in your project
+
+Round 3:
+1) Roles and responsibility
+2) Difference between authentication and authorisation
+3) What all are auth you came across or know
+4) What is JWT
+5) Tools used in your project (automation)
+6) Exp in CICD?
+7) Write a program to return the shortest substring having all the unique characters of the string
+Input: "abbcafcb" Output: "bcaf"

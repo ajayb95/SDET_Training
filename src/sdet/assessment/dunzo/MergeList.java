@@ -46,7 +46,7 @@ Method 2:
     for(int i = 1; i < a; i++){
         back = back.next;
     }
-    for(int i = 1; i < b; i++){
+    for(int i = 0; i < b; i++){
         front = front.next;
     }
     back.next = front.next;

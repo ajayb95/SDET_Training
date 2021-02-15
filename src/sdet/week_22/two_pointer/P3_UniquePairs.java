@@ -1,4 +1,4 @@
-package sdet.week_22.day_1.weekwork.two_pointer;
+package sdet.week_22.two_pointer;
 
 /*
 Given an array of integers nums and an integer k, return the number of unique k-diff pairs in the array. A k-diff pair is an integer pair (nums[i], nums[j]), where the following are true:
