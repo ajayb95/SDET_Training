@@ -1,0 +1,71 @@
+Solve the below problem only by HashTable/Map (using Text Editor)
+
+P1)
+
+Given an array of integers nums and an integer target, return indices of the two numbers such that they product up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
+
+Example 1:
+
+Input: nums = [2,7,11,4,15], target = 8
+Output: [0,3]
+Output: Because nums[0] * nums[3] == 8, we return [0, 3].
+
+P2)
+
+Given a non-empty array of integers, return the k most frequent elements.
+
+Example 1:
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+P3)
+
+Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
+
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+
+The order of output does not matter.
+
+Example 1:
+
+Input:
+s: "cbaebabacd" p: "abc"
+
+Output:
+[0, 6]
+
+
+P4)
+
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+Note:
+
+The same word in the dictionary may be reused multiple times in the segmentation.
+You may assume the dictionary does not contain duplicate words.
+Example 1:
+
+Input: s = "hardwork", wordDict = ["hard", "wordk"]
+Output: true
+Explanation: Return true because "hardwork" can be segmented as "hard work".
+
+Example 2:
+Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
+Output: false
+
+P5)
+
+Given a string s, return the longest palindromic substring in s.
+
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+
+
+
+

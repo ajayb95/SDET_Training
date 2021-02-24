@@ -19,6 +19,7 @@ public class ProductSort {
 		productSort(nums);
 	}
 	
+	
 	private void productSort(int[] nums) {
 		Map<Integer, Integer> map=new TreeMap<>();
 		for(int each:nums)

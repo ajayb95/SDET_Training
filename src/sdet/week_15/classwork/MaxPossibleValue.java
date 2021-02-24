@@ -15,50 +15,60 @@ public class MaxPossibleValue {
 
 	@Test
 	public void example1() {
-		int inp=1234;
+		int inp = 1234;
 		System.out.println(findMaxValue(inp));
 	}
-	
+
 	@Test
 	public void example2() {
-		int inp=7643;
+		int inp = 7643;
 		System.out.println(findMaxValue(inp));
 	}
-	
+
 	@Test
 	public void example3() {
-		int inp=0;
+		int inp = 0;
 		System.out.println(findMaxValue(inp));
 	}
-	
+
 	@Test
 	public void example4() {
-		int inp=-661;
+		int inp = -661;
 		System.out.println(findMaxValue(inp));
 	}
-	
+
 	@Test
 	public void example5() {
-		int inp=-1;
+		int inp = -1;
 		System.out.println(findMaxValue(inp));
 	}
-	
-	private String findMaxValue(int inp) {
-		
-		int mul=1;
-		if(inp<0)
-			mul=-1;
-		
-		int cnt=1;
-		int temp=Math.abs(inp);
-		while(temp>0) {
-			cnt*=10;
-			temp/=10;
-		}
-		cnt/=10;
-		
-		
-		return "";
 
+	private int findMaxValue(int number) {
+		int insertNumber = 5;
+
+		if (number == 0)
+			return insertNumber * 10;
+
+		int neg = number / Math.abs(number);
+		number = Math.abs(number);
+		int n = number;
+
+		int counter = 0;
+		while (n > 0) {
+			counter++;
+			n /= 10;
+		}
+
+		int maxVal = Integer.MIN_VALUE;
+		int position = 1;
+		for (int i = 0; i <= counter; i++) {
+			int newVal = ((number / position) * (position * 10)) + (insertNumber * position) + (number % position);
+			if (newVal * neg > maxVal)
+				maxVal = newVal * neg;
+
+			position *= 10;
+		}
+
+		return maxVal;
 	}
 }

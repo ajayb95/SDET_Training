@@ -11,6 +11,11 @@ import java.util.stream.Collectors;
 
 import org.junit.Test;
 
+/* Given the group of Debt records, who in the group has the smallest negative balance
+ * if nobody has a negative balance, return the string "Nobody has a negative balance".
+ * if multiple people has same min negative balance, return those people list with sorted order.
+ */
+
 public class FindMinDebts {
 
 	@Test
