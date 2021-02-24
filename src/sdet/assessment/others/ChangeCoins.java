@@ -7,6 +7,10 @@ import java.util.Stack;
 import org.junit.Assert;
 import org.junit.Test;
 
+/*
+ * Given an array of 0's and 1's, find the minimum flips required to make array having alternative sequence of coins.
+ * [1,0,1,0,1,1] -> reverse/flip 6th coin -> [1,0,1,0,1,0] -> min step = 1
+ */
 public class ChangeCoins {
 
 	@Test
