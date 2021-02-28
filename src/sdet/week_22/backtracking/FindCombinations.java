@@ -1,5 +1,10 @@
 package sdet.week_22.backtracking;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
 /*
 Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
 
@@ -20,5 +25,58 @@ These are the only two combinations.
 */
 
 public class FindCombinations {
+	@Test
+	public void example1() {
+		int[] nums = { 2, 3, 6, 7 };
+		int target = 7;
+		findCombinations(nums, target);
+	}
 
+	@Test
+	public void example2() {
+		int[] nums = { 2, 3, 5 };
+		int target = 8;
+		findCombinations(nums, target);
+	}
+
+	@Test
+	public void example3() {
+		int[] nums = { 2 };
+		int target = 1;
+		findCombinations(nums, target);
+	}
+
+	@Test
+	public void example4() {
+		int[] nums = { 1 };
+		int target = 1;
+		findCombinations(nums, target);
+	}
+
+	@Test
+	public void example5() {
+		int[] nums = { 1 };
+		int target = 2;
+		findCombinations(nums, target);
+	}
+
+	private void findCombinations(int[] nums, int target) {
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		recursionFunction(nums, target, output, new ArrayList<Integer>(), 0);
+		System.out.println(output);
+	}
+
+	private void recursionFunction(int[] nums, int target, List<List<Integer>> output, List<Integer> temp, int start) {
+		if (target <= 0) {
+			if (target == 0)
+				output.add(new ArrayList<Integer>(temp));
+			return;
+		}
+
+		for (int i = start; i < nums.length; i++) {
+			temp.add(nums[i]);
+			recursionFunction(nums, target - nums[i], output, temp, i);
+			temp.remove(temp.size() - 1);
+		}
+	}
 }

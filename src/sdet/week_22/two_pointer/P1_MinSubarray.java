@@ -2,10 +2,14 @@ package sdet.week_22.two_pointer;
 
 import java.util.Arrays;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /*
-Given an array of positive integers nums and a positive integer target, return the minimal length of a contiguous subarray [numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+Given an array of positive integers nums and a positive integer target, return the minimal length of a contiguous subarray 
+[numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal to target. If there is no such subarray, 
+return 0 instead.
+
 Example 1:
 Input: target = 7, nums = [2,3,1,2,4,3]
 Output: 2
@@ -16,28 +20,37 @@ public class P1_MinSubarray {
 
 	@Test
 	public void example1() {
-		int[] nums= {2,3,1,2,4,3};
-		int target=7;
-		System.out.println(Arrays.toString(findMinSubarray(nums,target)));
+		int[] nums = { 2, 3, 1, 2, 4, 3 };
+		int target = 7;
+		Assert.assertEquals(2, findMinSubarray(nums, target));
 	}
 
-	private int[] findMinSubarray(int[] nums, int target) {
-		int start=0,end=0,minStart=0;
-		int sum=0;
-		int minLen=0;
-		while(end<nums.length) {
-			sum+=nums[end++];
-			while(sum>=target) {
-				if(sum==target && end-start<minLen) {
-					minLen=end-start;
-					minStart=start;
-				}
-				sum-=nums[start++];
+	@Test
+	public void example2() {
+		int[] nums = { 1, 4, 4 };
+		int target = 4;
+		Assert.assertEquals(1, findMinSubarray(nums, target));
+	}
+
+	@Test
+	public void example3() {
+		int[] nums = { 1, 1, 1, 1, 1, 1, 1, 1 };
+		int target = 11;
+		Assert.assertEquals(0, findMinSubarray(nums, target));
+	}
+
+	private int findMinSubarray(int[] nums, int target) {
+		int start = 0, sum = 0, minLen = Integer.MAX_VALUE;
+		
+		for (int end = 0; end < nums.length; end++) {
+			sum += nums[end];
+
+			while (sum >= target) {
+				minLen = Math.min(minLen, end - start + 1);
+				sum -= nums[start++];
 			}
-			
 		}
-		
-		return Arrays.copyOfRange(nums, minStart, minStart+minLen-1);
-		
+
+		return (minLen == Integer.MAX_VALUE) ? 0 : minLen;
 	}
 }

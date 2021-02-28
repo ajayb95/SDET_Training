@@ -22,6 +22,24 @@ public class P2_LongestSubstring {
 		Assert.assertEquals(3, findLongSubstring(input));
 	}
 
+	@Test
+	public void example2() {
+		String input = "bbbbb";
+		Assert.assertEquals(1, findLongSubstring(input));
+	}
+
+	@Test
+	public void example3() {
+		String input = "pwwkew";
+		Assert.assertEquals(3, findLongSubstring(input));
+	}
+
+	@Test
+	public void example4() {
+		String input = "";
+		Assert.assertEquals(0, findLongSubstring(input));
+	}
+
 	private int findLongSubstring(String input) {
 		int start = 0, end = 0;
 		int maxLen = Integer.MIN_VALUE;
@@ -34,6 +52,6 @@ public class P2_LongestSubstring {
 				maxLen = Math.max(maxLen, end - start);
 			}
 		}
-		return maxLen;
+		return (maxLen == Integer.MIN_VALUE) ? 0 : maxLen;
 	}
 }

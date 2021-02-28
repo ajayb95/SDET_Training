@@ -48,7 +48,7 @@ The same word in the dictionary may be reused multiple times in the segmentation
 You may assume the dictionary does not contain duplicate words.
 Example 1:
 
-Input: s = "hardwork", wordDict = ["hard", "wordk"]
+Input: s = "hardwork", wordDict = ["hard", "work"]
 Output: true
 Explanation: Return true because "hardwork" can be segmented as "hard work".
 
