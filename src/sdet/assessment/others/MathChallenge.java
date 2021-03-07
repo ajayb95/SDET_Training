@@ -1,7 +1,6 @@
-package sdet.assessment.dunzo;
+package sdet.assessment.others;
 
-import java.util.Iterator;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MathChallenge {
@@ -9,25 +8,37 @@ public class MathChallenge {
 	@Test
 	public void example1() {
 		String input = "4 - 2 = x";
-		System.out.println(solveMath(input));
+		Assert.assertEquals("2", solveMath(input));
 	}
 
 	@Test
 	public void example2() {
 		String input = "1x0 * 12 = 1200";
-		System.out.println(solveMath(input));
+		Assert.assertEquals("0", solveMath(input));
 	}
 
 	@Test
 	public void example3() {
 		String input = "126 / 3 = x2";
-		System.out.println(solveMath(input));
+		Assert.assertEquals("4", solveMath(input));
 	}
 
 	@Test
 	public void example4() {
 		String input = "10 - x = 10";
-		System.out.println(solveMath(input));
+		Assert.assertEquals("0", solveMath(input));
+	}
+
+	@Test
+	public void example5() {
+		String input = "24 / x = 12";
+		Assert.assertEquals("2", solveMath(input));
+	}
+
+	@Test
+	public void example6() {
+		String input = "12 * x = 36";
+		Assert.assertEquals("3", solveMath(input));
 	}
 
 	private String solveMath(String input) {
@@ -40,6 +51,8 @@ public class MathChallenge {
 			return findX(split[0],
 					Integer.toString(callCalculate(split[1], Integer.parseInt(split[4]), Integer.parseInt(split[2]))));
 		} else if (split[2].contains("x")) {
+			if (split[1].equals("-"))
+				split[1] = "+";
 			return findX(split[2],
 					Integer.toString(callCalculate(split[1], Integer.parseInt(split[4]), Integer.parseInt(split[0]))));
 		}
