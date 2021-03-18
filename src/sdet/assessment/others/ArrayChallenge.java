@@ -73,19 +73,25 @@ public class ArrayChallenge {
 		Assert.assertEquals(false, isValidBinaryTree(input));
 	}
 
+	@Test
+	public void example6() {
+		String[] input = { "(2,3)", "(1,2)", "(4,9)", "(9,3)", "(12,9)", "(6,4)" };
+		Assert.assertEquals(true, isValidBinaryTree(input));
+	}
+
 	private boolean isValidBinaryTree(String[] input) {
 
-		Map<Character, Integer> parent = new HashMap<>();
-		Set<Character> child = new HashSet<>();
+		Map<String, Integer> parent = new HashMap<>();
+		Set<String> child = new HashSet<>();
 
 		for (String each : input) {
-			char temp = each.charAt(3);
-			parent.put(temp, parent.getOrDefault(temp, 0) + 1);
+			String[] temp = each.substring(1, each.length() - 1).split(",");
+			parent.put(temp[1], parent.getOrDefault(temp[1], 0) + 1);
 
-			if (!child.add(each.charAt(1)) || parent.get(temp) > 2)
+			if (!child.add(temp[0]) || parent.get(temp[1]) > 2)
 				return false;
 		}
-
+		
 		return true;
 	}
 }
