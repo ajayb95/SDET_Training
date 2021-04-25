@@ -1,5 +1,10 @@
 package sdet.week_18.homework;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.junit.Test;
+
 /*
 https://leetcode.com/problems/lru-cache/
 */
@@ -40,5 +45,24 @@ At most 3 * 104 calls will be made to get and put.
 */
 
 public class P2_LRUCache {
+	int size;
+	LinkedHashMap<Integer, Integer> m;
+	int counter = 0;
 
+	public P2_LRUCache(int capacity) {
+        size = capacity;
+        m = new LinkedHashMap<Integer, Integer>(size, 0.75f, true){
+            protected boolean removeEldestEntry(Map.Entry e){
+                return size()>size;
+            }
+        };
+    }
+
+	public int get(int key) {
+		return m.getOrDefault(key, -1);
+	}
+
+	public void put(int key, int value) {
+		m.put(key, value);
+	}
 }
