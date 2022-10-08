@@ -1,0 +1,87 @@
+How will you Validate below scenario?
+
+Login   - Email and Pass - 20% users will get this
+	- Phone and OTP  - 80% users will get this
+
+How will you Test whether this functionality is working fine or not?
+
+10 Users + 5 More + 2 Users = 
+
+05 users
+
+----------------------------------------------------------------------------
+Service 1 - update DB after getting payment 
+		
+		Functional - Positive
+		- Payment - Credit,Debit,Netbank,Paytm
+		- Bank
+		
+		Edge Cases
+		- Timeout - Money - Ask to try in different - Refund Old
+
+Service 2 - async - order placed - Once Payment is done
+		
+		- Queue - Payment Success 
+		
+
+--------------------------------------------------------------------------------
+
+Meesho Round 1:
+
+Program: Minimum Substring With All Characters
+
+Diff b/w Put and Patch
+
+Write POJO Class for below response
+{
+    "name": "autouser",
+    "job": "tester"
+}
+
+Parse below response with JSON Path/Jacksen
+{
+  "data": [
+    {
+      "dest_address": {
+        "city": "delhi1",
+        "district": "",
+        "state": "",
+        "pin": "208002",
+        "country": "india"
+      }
+    }
+  ]
+}
+
+---------------------------------------------------------------------
+
+Meesho Round 2:
+
+Write a POJO Class for below Response and Write Rest Assured Code to implement it
+
+curl -X POST \
+  http://xyz/school/1.0/download-data \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'country-code: IN' \
+  -H 'id: id' \
+  -H 'postman-token: 0fee6eb0-7700-bdf4-4471-113fc4408698' \
+  -H 'secret: secret' \
+  -d '{
+  "include": false,
+  "school": [
+    {
+      "school_name": "jnv",
+      "student_ids": [
+        599515
+      ]
+    }
+  ],
+  "university": {
+    "id": "78",
+    "name": "PUNE"
+  }
+}'
+
+
+

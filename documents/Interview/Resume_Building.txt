@@ -1,0 +1,87 @@
+Profile - 
+Photo, Name, Address, Number, Email
+Bonus: GitHub link, LinkedIn profile
+
+Abstract - 
+4 liner about you!! Never copy paste!! Do not copy from google
+Look at samples -> Find your own version
+
+Roles and Responsibilities
+Automated Testing (UI) + API automated testing
+Manual Testing
+Agile/Water fall/Iterative
+SQL
+Test metrics, Test data
+Test Management Tools - Jira/Rally/ALM
+(8 to 10 bulleted points - Actual what you do or what you like to do!!)
+
+Organization Summary (Chronological Order) - 
+Ally - SDET - 06 May 2021 to Till date
+FIS Global - Lead Testing - 23 Mar 2020 to 05 May 2021
+Cognizant - Associate - 25 Feb 2017 to 20 Mar 2020
+
+Projects Summary
+<Project Name> - 
+Team Size:
+Tools: Front End - | Back End - | DB: 
+Timeline:
+
+Skills - 
+Manual Testing - 9 out of 10
+WebDriver - 8 out of 10
+Java - 7 out of 10
+TestNg
+Cucumber
+Design Patterns (POM)
+Apache POI
+Rest API
+Jenkins - 3 out of 10
+
+
+Build your resume
+	- Number of pages 
+	- Sections and Contents
+	- Template (Presentation)
+	- Single vs Multiple
+
+Networking - LinkedIn and Referral
+Profiles - Naukri,Monster
+
+Intervie Preperation cookbook
+	- Java (8 Steps to solve problems)
+	- Selenium -> XPath, Window handles, Javascript executor, Exceptions, Grid, Challenges
+	- API/Micro Services -> Status code, responses, headers, auth vs auth, auth types, response parser, debug API !! 
+	- SQL Basics -> insert, select, update, delete, order by, group by, sub query, inner join, outer join
+
+Interview Tips
+	- Be Prepard and ready
+	- Look good
+	- Stay confident
+	- Accept unknowns
+	- Ask questions
+	- Validate the expectations
+	- Ask hints
+	- Body language and negative signs
+
+https://novoresume.com/cv-templates
+https://www.canva.com/resumes/templates/
+https://www.visualcv.com/cv-templates/
+
+PepperType : sisinty.com/peppertype
+LinkedIn 50$/ Rs 2500 Ad coupon :
+https://business.linkedin.com/marketing-solutions/cx/17/04/dynamic-ads-ads-promo?src=li-dynamic&veh=lppromo
+lead generation training: https://www.loom.com/share/d09fce03193c4e12b2d16f3cceda34a3
+Scripts : sisinty.com/freescripts
+checklist : sisinty.com/checklist
+Tools used :
+https://recruitmentgeek.com/tools/linkedin
+https://linkedprospect.com/linkedin-boolean-search-tool/
+https://www.linkedin.com/salary/
+Sisinty.com/publer
+sisinty.com/emailtool
+resumeworded.com
+Find email tool : www.snov.io
+Background remove : www.remove.bg
+Photo Analysis : photofeeler.com
+LinkedIn analytics : shieldapp.ai
+Personality analyser : crystalknows.com
